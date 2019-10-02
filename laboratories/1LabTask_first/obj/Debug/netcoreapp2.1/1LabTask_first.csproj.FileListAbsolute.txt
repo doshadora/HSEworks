@@ -1,0 +1,11 @@
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\bin\Debug\netcoreapp2.1\1LabTask_first.deps.json
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\bin\Debug\netcoreapp2.1\1LabTask_first.runtimeconfig.json
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\bin\Debug\netcoreapp2.1\1LabTask_first.runtimeconfig.dev.json
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\bin\Debug\netcoreapp2.1\1LabTask_first.dll
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\bin\Debug\netcoreapp2.1\1LabTask_first.pdb
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\obj\Debug\netcoreapp2.1\1LabTask_first.csprojAssemblyReference.cache
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\obj\Debug\netcoreapp2.1\1LabTask_first.csproj.CoreCompileInputs.cache
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\obj\Debug\netcoreapp2.1\1LabTask_first.AssemblyInfoInputs.cache
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\obj\Debug\netcoreapp2.1\1LabTask_first.AssemblyInfo.cs
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\obj\Debug\netcoreapp2.1\1LabTask_first.dll
+C:\Users\dasha\source\repos\HSEworks\laboratories\1LabTask_first\obj\Debug\netcoreapp2.1\1LabTask_first.pdb

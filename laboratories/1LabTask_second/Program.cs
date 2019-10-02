@@ -26,7 +26,7 @@ namespace _1LabTask_second
                     Console.WriteLine("Error");
                 };
             } while (!ok);
-            ok = (-7 <= x) & (x <= 0) & (-2 <= y) & (y <= 0);
+            ok = (x >= 0) & (Math.Pow(x, 2) + Math.Pow(y, 2) <= 1);
             Console.WriteLine($"Результат = {ok}");
         }
     }
