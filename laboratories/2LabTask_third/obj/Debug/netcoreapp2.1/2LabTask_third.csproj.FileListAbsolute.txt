@@ -1,0 +1,11 @@
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\obj\Debug\netcoreapp2.1\2LabTask_third.csprojAssemblyReference.cache
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\obj\Debug\netcoreapp2.1\2LabTask_third.csproj.CoreCompileInputs.cache
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\obj\Debug\netcoreapp2.1\2LabTask_third.AssemblyInfoInputs.cache
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\obj\Debug\netcoreapp2.1\2LabTask_third.AssemblyInfo.cs
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\bin\Debug\netcoreapp2.1\2LabTask_third.deps.json
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\bin\Debug\netcoreapp2.1\2LabTask_third.runtimeconfig.json
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\bin\Debug\netcoreapp2.1\2LabTask_third.runtimeconfig.dev.json
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\bin\Debug\netcoreapp2.1\2LabTask_third.dll
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\bin\Debug\netcoreapp2.1\2LabTask_third.pdb
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\obj\Debug\netcoreapp2.1\2LabTask_third.dll
+C:\Users\dasha\source\repos\HSEworks\laboratories\2LabTask_third\obj\Debug\netcoreapp2.1\2LabTask_third.pdb

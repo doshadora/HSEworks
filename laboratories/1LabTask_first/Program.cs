@@ -41,7 +41,7 @@ namespace _1LabTask_first
                 }
             } while (!ok);
 
-            res4 = Math.Tan(x) - Math.Pow((5 - x), 4);
+            res4 = Math.Tan(x) - Math.Pow(5 - x, 4);
             Console.WriteLine($"Math.Tan(x)-Math.Pow((5-x),4)={res4},x={x}");
         }
     }

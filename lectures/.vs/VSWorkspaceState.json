@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\2.10.19"
+    "\\2.10.19",
+    "\\2.10.19(1)",
+    "\\25.09.19"
   ],
-  "SelectedNode": "\\2.10.19\\2.10.19.csproj",
+  "SelectedNode": "\\2.10.19(1)\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

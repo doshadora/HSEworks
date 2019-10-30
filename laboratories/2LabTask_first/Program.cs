@@ -7,7 +7,7 @@ namespace _2LabTask_first
         static void Main(string[] args)
         {
             int a, n;
-            double s = 0, sar;
+            double s = 0;
             bool ok;
 
             do
@@ -16,13 +16,13 @@ namespace _2LabTask_first
                 ok = int.TryParse(Console.ReadLine(), out n);
                 if (!ok)
                 {
-                    Console.WriteLine("Error!");
+                    Console.WriteLine("Число не является целым!");
                 }
                 else
                 {
                     if (n <= 0)
                     {
-                        Console.WriteLine("Error");
+                        Console.WriteLine("Количество чисел не может быть отрицательным!");
                         ok = false;
                     }
                 }
@@ -33,18 +33,15 @@ namespace _2LabTask_first
             {
                 do
                 {
-                    Console.WriteLine("Введите число");
+                    Console.WriteLine("Введите целое число");
                     ok = int.TryParse(Console.ReadLine(), out a);
-                    if (!ok) Console.WriteLine("Error!");
-                } while (a != 0);
+                    if (!ok) Console.WriteLine("Число не является целым!!");
+                } while (!ok);
 
-                s += a;
-
+                if (i % 2 != 0)
+                    s += a;
             }
-
-            sar = s / n;
-
-            Console.WriteLine($"Среднее арифметическое = {sar}");
+            Console.WriteLine($"Сумма элементов с нечетными номерами = {s}");
         }
     }
 }
