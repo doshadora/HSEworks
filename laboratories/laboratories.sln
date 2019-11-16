@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2LabTask_third", "2LabTask_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2LabTask_second", "2LabTask_second\2LabTask_second.csproj", "{7EAC4DCE-F082-4094-99B4-B38249176B8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3LabTask", "3LabTask\3LabTask.csproj", "{EEFBF5E4-1D93-4BC6-AAEE-AFA019457755}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3LabTask", "3LabTask\3LabTask.csproj", "{EEFBF5E4-1D93-4BC6-AAEE-AFA019457755}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

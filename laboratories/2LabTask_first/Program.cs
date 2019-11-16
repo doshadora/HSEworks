@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 
 namespace _2LabTask_first
 {

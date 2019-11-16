@@ -1,0 +1,11 @@
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\bin\Debug\netcoreapp2.1\Леся.deps.json
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\bin\Debug\netcoreapp2.1\Леся.runtimeconfig.json
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\bin\Debug\netcoreapp2.1\Леся.runtimeconfig.dev.json
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\bin\Debug\netcoreapp2.1\Леся.dll
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\bin\Debug\netcoreapp2.1\Леся.pdb
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\obj\Debug\netcoreapp2.1\Леся.csproj.CoreCompileInputs.cache
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\obj\Debug\netcoreapp2.1\Леся.AssemblyInfoInputs.cache
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\obj\Debug\netcoreapp2.1\Леся.AssemblyInfo.cs
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\obj\Debug\netcoreapp2.1\Леся.dll
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\obj\Debug\netcoreapp2.1\Леся.pdb
+C:\Users\dasha\source\repos\HSEworks\laboratories\Леся\obj\Debug\netcoreapp2.1\Леся.csprojAssemblyReference.cache

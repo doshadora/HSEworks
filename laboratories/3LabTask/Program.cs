@@ -6,41 +6,34 @@ namespace _3LabTask
     {
         static void Main(string[] args)
         {
-            int n = 15;
-            double a = 1, b = 2, k = 10, e = 0.0001, h, x, y, SN, an, S, SE;
+            const int n = 15;
+            int a1 = 1,  b1 = 1;
+            double x, y, SN, SE, SE_last;
+            const double a = 1, b = 2, k = 10, e = 0.0001;
 
-            h = (b - a) / k;
-            x = a;
-            int factorial = 1;
-
-            while (x <= b)
+            for (x = a; x <= b; x += (b - a) / k)
             {
-                for (int i = 1; i < n; i++)
+                y = Math.Pow(Math.E, x);
+                SN = a1;
+                int factorial = 1;
+                for (int i = 1; i <= n; i++)
                 {
-                    factorial *= i;
+                    SN += (a1 + x/i) / (factorial *= i);
                 }
-
-                y = Math.Pow(e, x);
-                S = Math.Pow(x, n) / factorial;
-                an = 1;
-                SN = S;
-                for (int i = 1; i < n; i++)
+                
+                SE = b1;
+                factorial = 1;
+                int m = 1;
+                do
                 {
-                    an += y;
-                    SN += an;
-                }
-
-                an = 1;
-                SE = S;
-                while (an > e)
-                {
-                    an *= y;
-                    SE += an;
-                }
+                    SE_last = SE;
+                    SE += (b1 + x/m) / (factorial *= m);
+                    m++;
+                } while (SE - SE_last >= e);
 
                 Console.WriteLine($"X = {x} SN = {SN} SE = {SE} Y = {y}");
-                x += h;
             }
+            Console.ReadKey();
         }
     }
 }
