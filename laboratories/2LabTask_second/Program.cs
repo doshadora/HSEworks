@@ -9,8 +9,8 @@ namespace _2LabTask_second
             int a, q = 0;
             bool ok;
 
-            do
-            {
+            //do
+            for (; a!=0;)
                 Console.WriteLine("Введите целое число");
                 ok = int.TryParse(Console.ReadLine(), out a);
                 if (!ok)
@@ -21,7 +21,7 @@ namespace _2LabTask_second
                 {
                     if (a % 2 == 0) q++;
                 }
-            } while (!ok || a != 0);
+            //} while (!ok || a != 0);
 
             Console.WriteLine($"Количество четных элементов = {q - 1}");
         }
