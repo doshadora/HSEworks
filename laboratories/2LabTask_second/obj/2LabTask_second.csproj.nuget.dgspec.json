@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\2LabTask_second\\2LabTask_second.csproj": {}
+    "D:\\source\\repos\\HSEworks\\laboratories\\2LabTask_second\\2LabTask_second.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\2LabTask_second\\2LabTask_second.csproj": {
+    "D:\\source\\repos\\HSEworks\\laboratories\\2LabTask_second\\2LabTask_second.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\2LabTask_second\\2LabTask_second.csproj",
+        "projectUniqueName": "D:\\source\\repos\\HSEworks\\laboratories\\2LabTask_second\\2LabTask_second.csproj",
         "projectName": "2LabTask_second",
-        "projectPath": "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\2LabTask_second\\2LabTask_second.csproj",
+        "projectPath": "D:\\source\\repos\\HSEworks\\laboratories\\2LabTask_second\\2LabTask_second.csproj",
         "packagesPath": "C:\\Users\\dasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\2LabTask_second\\obj\\",
+        "outputPath": "D:\\source\\repos\\HSEworks\\laboratories\\2LabTask_second\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

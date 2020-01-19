@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\1LabTask_second\\1LabTask_second.csproj",
+      "projectUniqueName": "D:\\source\\repos\\HSEworks\\laboratories\\1LabTask_second\\1LabTask_second.csproj",
       "projectName": "1LabTask_second",
-      "projectPath": "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\1LabTask_second\\1LabTask_second.csproj",
+      "projectPath": "D:\\source\\repos\\HSEworks\\laboratories\\1LabTask_second\\1LabTask_second.csproj",
       "packagesPath": "C:\\Users\\dasha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\1LabTask_second\\obj\\",
+      "outputPath": "D:\\source\\repos\\HSEworks\\laboratories\\1LabTask_second\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

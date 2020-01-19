@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\3LabTask\\3LabTask.csproj": {}
+    "D:\\source\\repos\\HSEworks\\laboratories\\3LabTask\\3LabTask.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\3LabTask\\3LabTask.csproj": {
+    "D:\\source\\repos\\HSEworks\\laboratories\\3LabTask\\3LabTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\3LabTask\\3LabTask.csproj",
+        "projectUniqueName": "D:\\source\\repos\\HSEworks\\laboratories\\3LabTask\\3LabTask.csproj",
         "projectName": "3LabTask",
-        "projectPath": "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\3LabTask\\3LabTask.csproj",
+        "projectPath": "D:\\source\\repos\\HSEworks\\laboratories\\3LabTask\\3LabTask.csproj",
         "packagesPath": "C:\\Users\\dasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dasha\\source\\repos\\HSEworks\\laboratories\\3LabTask\\obj\\",
+        "outputPath": "D:\\source\\repos\\HSEworks\\laboratories\\3LabTask\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
