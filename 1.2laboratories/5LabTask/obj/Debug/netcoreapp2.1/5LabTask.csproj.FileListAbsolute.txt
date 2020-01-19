@@ -1,0 +1,11 @@
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\obj\Debug\netcoreapp2.1\5LabTask.csproj.CoreCompileInputs.cache
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\obj\Debug\netcoreapp2.1\5LabTask.AssemblyInfoInputs.cache
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\obj\Debug\netcoreapp2.1\5LabTask.AssemblyInfo.cs
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\bin\Debug\netcoreapp2.1\5LabTask.deps.json
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\bin\Debug\netcoreapp2.1\5LabTask.runtimeconfig.json
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\bin\Debug\netcoreapp2.1\5LabTask.runtimeconfig.dev.json
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\bin\Debug\netcoreapp2.1\5LabTask.dll
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\bin\Debug\netcoreapp2.1\5LabTask.pdb
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\obj\Debug\netcoreapp2.1\5LabTask.dll
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\obj\Debug\netcoreapp2.1\5LabTask.pdb
+C:\Users\dasha\source\repos\HSEworks\1.2laboratories\5LabTask\obj\Debug\netcoreapp2.1\5LabTask.csprojAssemblyReference.cache
