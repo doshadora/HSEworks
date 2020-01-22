@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\черновик.csproj": {}
+    "D:\\source\\repos\\HSEworks\\1.3laboratories\\6LabTask_first\\6LabTask_first.csproj": {}
   },
   "projects": {
-    "D:\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\черновик.csproj": {
+    "D:\\source\\repos\\HSEworks\\1.3laboratories\\6LabTask_first\\6LabTask_first.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\черновик.csproj",
-        "projectName": "черновик",
-        "projectPath": "D:\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\черновик.csproj",
+        "projectUniqueName": "D:\\source\\repos\\HSEworks\\1.3laboratories\\6LabTask_first\\6LabTask_first.csproj",
+        "projectName": "6LabTask_first",
+        "projectPath": "D:\\source\\repos\\HSEworks\\1.3laboratories\\6LabTask_first\\6LabTask_first.csproj",
         "packagesPath": "C:\\Users\\dasha\\.nuget\\packages\\",
-        "outputPath": "D:\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\obj\\",
+        "outputPath": "D:\\source\\repos\\HSEworks\\1.3laboratories\\6LabTask_first\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

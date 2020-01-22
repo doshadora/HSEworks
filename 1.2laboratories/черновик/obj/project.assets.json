@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dasha\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\черновик.csproj",
+      "projectUniqueName": "D:\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\черновик.csproj",
       "projectName": "черновик",
-      "projectPath": "C:\\Users\\dasha\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\черновик.csproj",
+      "projectPath": "D:\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\черновик.csproj",
       "packagesPath": "C:\\Users\\dasha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dasha\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\obj\\",
+      "outputPath": "D:\\source\\repos\\HSEworks\\1.2laboratories\\черновик\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
