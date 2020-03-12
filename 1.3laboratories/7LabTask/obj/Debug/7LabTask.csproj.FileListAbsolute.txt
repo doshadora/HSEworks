@@ -1,0 +1,13 @@
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\bin\Debug\7LabTask.exe.config
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\bin\Debug\7LabTask.exe
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\bin\Debug\7LabTask.pdb
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\obj\Debug\7LabTask.csprojAssemblyReference.cache
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\obj\Debug\_7LabTask.Form1.resources
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\obj\Debug\_7LabTask.Properties.Resources.resources
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\obj\Debug\7LabTask.csproj.GenerateResource.cache
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\obj\Debug\7LabTask.csproj.CoreCompileInputs.cache
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\obj\Debug\7LabTask.exe
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\obj\Debug\7LabTask.pdb
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\obj\Debug\_7LabTask.Form2.resources
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\obj\Debug\_7LabTask.Form3.resources
+D:\source\repos\HSEworks\1.3laboratories\7LabTask\obj\Debug\_7LabTask.Form4.resources

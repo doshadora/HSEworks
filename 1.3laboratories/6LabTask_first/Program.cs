@@ -26,10 +26,12 @@ namespace _6LabTask_first
             {
                 Console.Write("Введите количество строк массива: ");
                 strings = InsertInt();
+                Console.WriteLine(" ");
                 if (strings <= 0)
                 {
                     Console.WriteLine(" ");
                     Console.WriteLine("Количество строк должно быть больше нуля.");
+                    Console.WriteLine(" ");
                 }
             } while (strings <= 0);
         }
@@ -39,12 +41,13 @@ namespace _6LabTask_first
             {
                 Console.Write("Введите количество столбцов массива: ");
                 columns = InsertInt();
+                Console.WriteLine(" ");
                 if (columns <= 0)
                 {
                     Console.WriteLine(" ");
                     Console.WriteLine("Количество столбцов должно быть больше нуля.");
+                    Console.WriteLine(" ");
                 }
-                Console.WriteLine(" ");
             } while (columns <= 0);
         }
         static int InsertInt()
@@ -59,6 +62,7 @@ namespace _6LabTask_first
                 {
                     Console.WriteLine(" ");
                     Console.WriteLine("Неверный ввод! Введите заново.");
+                    Console.WriteLine(" ");
                 }
             } while (ok == false);
             return num;
@@ -76,7 +80,7 @@ namespace _6LabTask_first
                 {
                     for (j = 0; j < columns; j++)
                     {
-                        Console.Write(matr[i, j] + " ");
+                        Console.Write($"{matr[i, j],4}");
                     }
                     Console.WriteLine();
                 }
@@ -91,7 +95,7 @@ namespace _6LabTask_first
             {
                 for (j = 0; j < columns; j++)
                 {
-                    vs[i, j] = rnd.Next(-10, 10);
+                    vs[i, j] = rnd.Next(-100, 100);
                 }
             }
             matr = vs;
@@ -156,12 +160,40 @@ namespace _6LabTask_first
                     }
                 }
             }
-            Console.WriteLine("minElem = {0}, theColumn = {1}", minElem, theColumn + 1);
+            Console.WriteLine("Минимальный элемент массива = {0} \nСтолбец для удаления = {1}", minElem, theColumn + 1);
+            Console.WriteLine(" ");
         }
         static void DeleteColumn(ref int[,] matr, int strings, ref int columns, int theColumn)
         {
+            if (theColumn == 0 && columns == 1)
+            {
+                columns = 0;
+                matr = null;
+                Console.WriteLine("Массив стал пустым.");
+                Console.WriteLine(" ");
+                return;
+            }
+
             int t;
             int[,] vs = new int[strings, columns - 1];
+
+            if (theColumn +1 == columns)
+            {
+                columns -= 1;
+                for (int i = 0; i < strings; i++)
+                {
+                    for (int j = t = 0; j < columns; j++, t++)
+                    {
+                        vs[i, t] = matr[i, j];
+                    }
+                }
+                matr = vs;
+                Console.WriteLine("Измененный массив:");
+                PrintArray(matr, strings, columns);
+                Console.WriteLine(" ");
+                return;
+            }
+
             for (int i = 0; i < strings; i++)
             {
                 for (int j = t = 0; j < columns; j++, t++)
@@ -172,6 +204,7 @@ namespace _6LabTask_first
                     }
                     else
                     {
+
                         j++;
                     }
                     vs[i, t] = matr[i, j];
@@ -179,6 +212,9 @@ namespace _6LabTask_first
             }
             columns -= 1;
             matr = vs;
+            Console.WriteLine("Измененный массив:");
+            PrintArray(matr, strings, columns);
+            Console.WriteLine(" ");
         }
         static void Main(string[] args)
         {
@@ -208,10 +244,12 @@ namespace _6LabTask_first
                             }
                             else
                             {
+                                Console.WriteLine("Исходный массив:");
+                                PrintArray(matr, strings, columns);
+                                Console.WriteLine(" ");
                                 int minElem = matr[0, 0], theColumn = 0;
                                 FindMinimalElem(matr, strings, columns, ref minElem, ref theColumn);
                                 DeleteColumn(ref matr, strings, ref columns, theColumn);
-                                PrintArray(matr, strings, columns);
                             }
                             break;
                         }

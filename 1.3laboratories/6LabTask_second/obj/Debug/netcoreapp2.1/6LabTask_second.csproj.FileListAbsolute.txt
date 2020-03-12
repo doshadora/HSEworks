@@ -1,0 +1,11 @@
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\bin\Debug\netcoreapp2.1\6LabTask_second.deps.json
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\bin\Debug\netcoreapp2.1\6LabTask_second.runtimeconfig.json
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\bin\Debug\netcoreapp2.1\6LabTask_second.runtimeconfig.dev.json
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\bin\Debug\netcoreapp2.1\6LabTask_second.dll
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\bin\Debug\netcoreapp2.1\6LabTask_second.pdb
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\obj\Debug\netcoreapp2.1\6LabTask_second.csprojAssemblyReference.cache
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\obj\Debug\netcoreapp2.1\6LabTask_second.csproj.CoreCompileInputs.cache
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\obj\Debug\netcoreapp2.1\6LabTask_second.AssemblyInfoInputs.cache
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\obj\Debug\netcoreapp2.1\6LabTask_second.AssemblyInfo.cs
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\obj\Debug\netcoreapp2.1\6LabTask_second.dll
+D:\source\repos\HSEworks\1.3laboratories\6LabTask_second\obj\Debug\netcoreapp2.1\6LabTask_second.pdb
