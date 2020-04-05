@@ -177,7 +177,7 @@ namespace _6LabTask_first
             int t;
             int[,] vs = new int[strings, columns - 1];
 
-            if (theColumn +1 == columns)
+            if (theColumn + 1 == columns)
             {
                 columns -= 1;
                 for (int i = 0; i < strings; i++)

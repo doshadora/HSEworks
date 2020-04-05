@@ -2,9 +2,9 @@ D:\source\repos\HSEworks\1.3laboratories\8LabTask\bin\Debug\8LabTask.exe.config
 D:\source\repos\HSEworks\1.3laboratories\8LabTask\bin\Debug\8LabTask.exe
 D:\source\repos\HSEworks\1.3laboratories\8LabTask\bin\Debug\8LabTask.pdb
 D:\source\repos\HSEworks\1.3laboratories\8LabTask\obj\Debug\8LabTask.csprojAssemblyReference.cache
-D:\source\repos\HSEworks\1.3laboratories\8LabTask\obj\Debug\_8LabTask.Form1.resources
 D:\source\repos\HSEworks\1.3laboratories\8LabTask\obj\Debug\_8LabTask.Properties.Resources.resources
 D:\source\repos\HSEworks\1.3laboratories\8LabTask\obj\Debug\8LabTask.csproj.GenerateResource.cache
 D:\source\repos\HSEworks\1.3laboratories\8LabTask\obj\Debug\8LabTask.csproj.CoreCompileInputs.cache
 D:\source\repos\HSEworks\1.3laboratories\8LabTask\obj\Debug\8LabTask.exe
 D:\source\repos\HSEworks\1.3laboratories\8LabTask\obj\Debug\8LabTask.pdb
+D:\source\repos\HSEworks\1.3laboratories\8LabTask\obj\Debug\_8LabTask.Form1.resources
