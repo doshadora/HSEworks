@@ -7,12 +7,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace _8LabTask
+namespace rodion
 {
     public partial class Form1 : Form
     {
         string[,] mas = new string[100, 4];
         string[,] mas0 = new string[100, 4];
+        string[,] greatMas = new string[100, 4];
         string[] mas1 = new string[100];
         int[] mas2 = new int[100];
         int[] mas3 = new int[100];
@@ -83,15 +84,6 @@ namespace _8LabTask
         {
             InitializeComponent();
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            if (personList.Count < 1)
-            {
-                button2.Enabled = false;
-                button5.Enabled = false;
-                button6.Enabled = false;
-                button7.Enabled = false;
-            }
         }
 
         private void AddRow()
@@ -114,14 +106,6 @@ namespace _8LabTask
                 textBox2.Clear();
                 textBox3.Clear();
                 comboBox1.SelectedIndex = 0;
-
-                if (personList.Count >= 1)
-                {
-                    button2.Enabled = true;
-                    button5.Enabled = true;
-                    button6.Enabled = true;
-                    button7.Enabled = true;
-                }
 
                 button1.Focus(); // кнопка добавить
             }
@@ -149,8 +133,9 @@ namespace _8LabTask
             {
                 mas[viewData.Rows.Count - 1, j] = crMas[j];
             }
-            mas1[viewData.Rows.Count - 1] = mas[viewData.Rows.Count - 1, 1];
+            mas1[viewData.Rows.Count - 1] = mas[viewData.Rows.Count - 1, 3];
             mas0 = mas;
+            greatMas = mas;
         }
 
         private void AddDataToMas()
@@ -170,10 +155,11 @@ namespace _8LabTask
                 Person p = new Person(cr.fio);
                 personList.Add(p);
 
-                mas1[count] = mas[count, 1];
+                mas1[count] = mas[count, 3];
                 count++;
             }
             mas0 = mas;
+            greatMas = mas;
         }
 
         private void DeleteRow()
@@ -194,34 +180,11 @@ namespace _8LabTask
                         }
                     }
                 }
+
+
             }
             catch (InvalidOperationException)
             { }
-        }
-
-        private void FindByType()
-        {
-            if (comboBox2.SelectedIndex != -1 && comboBox2.SelectedIndex != 0)
-            {
-                int countResults = 0;
-
-                for (int i = 0; i < viewData.RowCount - 1; i++)
-                {
-                    if (viewData.Rows[i].Cells[2].Value.ToString() == comboBox2.Text)
-                    {
-                        countResults++;
-                        viewData.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
-                    }
-                }
-
-                if (countResults == 0)
-                {
-                    MessageBox.Show("Кредиты данного типа не выдавались!");
-                    comboBox2.SelectedIndex = 0;
-                    comboBox2.Focus();
-                }
-                comboBox2.SelectedIndex = 0;
-            }
         }
 
         private void ResetHighlight()
@@ -268,67 +231,82 @@ namespace _8LabTask
             viewData.Rows[viewData.RowCount - 1].Cells[0].Selected = true;
         }
 
-        private void FindBiggestSumm()
+        private void FindByPeriod()
         {
-            try
+            //try
+            //{
+            int countp = personList.Count;
+            int countt = countp;
+            mas = greatMas;
+            mas0 = greatMas;
+            mas2 = new int[100];
+
+            for (int i = 0; i < personList.Count; i++)
             {
-                int countp = personList.Count;
-                int countt = countp;
-                mas = mas0;
-                mas2 = new int[100];
+                mas2[i] = int.Parse(mas1[i]);
+                mas3 = mas2;
+            }
+
+            int thisPeriod = 0;
+            int indexOfTP = -1;
+
+            if (countp > 0)
+            {
+                for (int i = 0; i < countt; i++)
+                {
+                    for (int j = i + 1; j < viewData.Rows.Count-1; j++)
+                    {
+                        if (String.Compare(greatMas[i, 0], greatMas[j, 0]) == 0)
+                        {
+                            int here = j;
+                            mas3[i] += mas3[j];
+                            mas3[j] = 0;
+                            mas2[i] = mas3[i];
+
+                            DeleteStringMas2(here, countp);
+                            DeleteStringMas(here, ref countp);
+                        }
+                    }
+                }
 
                 for (int i = 0; i < personList.Count; i++)
                 {
-                    mas2[i] = int.Parse(mas1[i]);
-                    mas3 = mas2;
+                    if (mas3[i] == Convert.ToInt32(textBox5.Text))
+                    {
+                        thisPeriod = mas3[i];
+                        indexOfTP = i;
+                    }
                 }
-
-                int maxCredit = mas2[0];
-                int indexOfMC = -1;
-
-                if (countp > 0)
+                if (thisPeriod != 0 && indexOfTP != -1)
                 {
-                    for (int i = 0; i < countt; i++)
-                    {
-                        for (int j = i + 1; j < countp; j++)
-                        {
-                            if (String.Compare(mas[i, 0], mas[j, 0]) == 0)
-                            {
-                                int here = j;
-                                mas2[i] += mas2[j];
-                                mas3[j] = 0;
-
-                                DeleteStringMas2(here, countp);
-                                DeleteStringMas(here, ref countp);
-                            }
-                        }
-                    }
-
-                    for (int i = 0; i < personList.Count; i++)
-                    {
-                        if (mas3[i] >= maxCredit)
-                        {
-                            maxCredit = mas3[i];
-                            indexOfMC = i;
-                        }
-                    }
-                    MessageBox.Show("Самый большой кредит взят клиентом " + mas[indexOfMC, 0] + " \nСумма кредита составляет " + maxCredit + " рублей.");
+                    MessageBox.Show("На выбранный срок кредит взят клиентом " + mas[indexOfTP, 0] + " \nСрок кредита составляет " + thisPeriod + " месяцев.");
                 }
                 else
                 {
-                    MessageBox.Show("Список клиентов пуст.");
+                    MessageBox.Show("На данный срок кредиты не выдавались.");
                 }
             }
-            catch
+            else
             {
-                MessageBox.Show("Ошибка");
+                MessageBox.Show("Список клиентов пуст.");
             }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Ошибка");
+            //}
         }
 
         private void DeleteStringMas(int here, ref int countp)
         {
             int n = 0;
             string[,] vs1 = new string[countp - 1, 4];
+            mas = new string[countp,4];
+
+            if (countp != personList.Count)
+            {
+                here -= (personList.Count - countp);
+            }
 
             for (int m = 0; m < countp; m++)
             {
@@ -345,7 +323,7 @@ namespace _8LabTask
                     for (int j = 0; j < 4; j++)
                     {
                         vs1[n, j] = mas0[m, j];
-                        vs1[n, 1] = Convert.ToString(mas2[n]);
+                        vs1[n, 3] = Convert.ToString(mas2[n]);
                         mas[n, j] = mas0[m, j];
                     }
                     n++;
@@ -363,6 +341,11 @@ namespace _8LabTask
             int n = 0;
             int[] vs2 = new int[countp - 1];
 
+            if (countp != personList.Count)
+            {
+                here -= (personList.Count - countp);
+            }
+
             for (int m = 0; m < countp; m++)
             {
                 if (m == here)
@@ -379,6 +362,58 @@ namespace _8LabTask
             mas2 = vs2;
         }
 
+        private void FindByFIO()
+        {
+            int indexOfFIO = -1;
+            int countResults = 0;
+            string fioSearch = textBox4.Text;
+
+            for (int i = 0; i < personList.Count; i++)
+            {
+                SeparateFIO(ref indexOfFIO, fioSearch, ref countResults);
+            }
+
+            if (countResults == 0)
+            {
+                MessageBox.Show("Клиент не найден!");
+            }
+        }
+
+        private void SeparateFIO(ref int indexOfFIO, string fioSearch, ref int countResults)
+        {
+            int check = 0;
+            string[] sepWords = new string[personList.Count];
+
+            for (int i = 0; i < personList.Count; i++)
+            {
+                sepWords[i] = greatMas[i, 0];
+            }
+
+            foreach (string word in sepWords)
+            {
+                string threeChars = word.Remove(3);
+
+                if (fioSearch == threeChars)
+                {
+                    indexOfFIO = check;
+                    HighlightFIO(indexOfFIO, ref countResults);
+                }
+
+                check++;
+            }
+        }
+
+        private void HighlightFIO(int indexOfFIO, ref int countResults)
+        {
+            for (int i = 0; i < viewData.RowCount - 1; i++)
+            {
+                if (indexOfFIO == i)
+                {
+                    countResults++;
+                    viewData.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                }
+            }
+        }
         private void AddInfoToTable(string F, int S, string T, int P, int i)
         {
             viewData.Rows[i].SetValues(F, S, T, P);
@@ -442,14 +477,6 @@ namespace _8LabTask
                     }
                 }
                 PutDataToTable();
-
-                if (creditList.Count >= 1)
-                {
-                    button2.Enabled = true;
-                    button5.Enabled = true;
-                    button6.Enabled = true;
-                    button7.Enabled = true;
-                }
             }
             catch (Exception)
             {
@@ -460,6 +487,13 @@ namespace _8LabTask
         private bool FIO_Check(string F)
         {
             Regex rg = new Regex(@"^[А-Я][а-я]{1,} [А-Я]{1}[.]{1}[А-Я]{1}[.]{1}$");
+            Match m = rg.Match(F);
+            return m.Success;
+        }
+
+        private bool FIOSearch_Check(string F)
+        {
+            Regex rg = new Regex(@"^[А-Я][а-я]{1,2}$");
             Match m = rg.Match(F);
             return m.Success;
         }
@@ -498,6 +532,113 @@ namespace _8LabTask
             else return false;
         }
 
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            AddRow();
+        }
+
+        private void TextBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox1.Clear();
+        }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            FindByPeriod();
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            DeleteRow();
+        }
+
+        private void Button3_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            comboBox1.SelectedIndex = 0;
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            GetDataFromFile();
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            if (viewData.RowCount == 0)
+            {
+                MessageBox.Show("Сначала введите данные в таблицу");
+            }
+            else
+            {
+                SaveToFile();
+            }
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            ResetHighlight();
+        }
+
+        private void TextBox3_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox3.Clear();
+        }
+
+        private void ViewData_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            viewData.Rows[viewData.RowCount - 1].Selected = false;
+
+            for (int i = 0; i < 4; i++)
+            {
+                viewData.Rows[viewData.RowCount - 1].Cells[i].Selected = false;
+            }
+        }
+
+        private void ViewData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PutDataBack(e);
+        }
+
+        private void TextBox4_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox4.Clear();
+        }
+
+        private void TextBox5_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox5.Clear();
+        }
+
+        private void TextBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ' || e.KeyChar == '.')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
         private void TextBox1_Validating(object sender, CancelEventArgs e)
         {
             if (FIO_Check(textBox1.Text) == false)
@@ -525,6 +666,26 @@ namespace _8LabTask
                 MessageBox.Show("Ошибка!");
                 textBox3.Clear();
                 textBox3.Focus();
+            }
+        }
+
+        private void TextBox4_Validating(object sender, CancelEventArgs e)
+        {
+            if (FIOSearch_Check(textBox4.Text) == false)
+            {
+                MessageBox.Show("Введите первые 3 буквы фамилии!");
+                textBox4.Clear();
+                textBox4.Focus();
+            }
+        }
+
+        private void TextBox5_Validating(object sender, CancelEventArgs e)
+        {
+            if (Period_Check(textBox5.Text) == false)
+            {
+                MessageBox.Show("Ошибка!");
+                textBox5.Clear();
+                textBox5.Focus();
             }
         }
 
@@ -574,81 +735,10 @@ namespace _8LabTask
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            AddRow();
-        }
-
-        private void TextBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            textBox1.Clear();
-        }
-
         private void Button2_Click(object sender, EventArgs e)
         {
             ResetHighlight();
-            FindByType();
-        }
-
-        private void Button3_Click(object sender, EventArgs e)
-        {
-            DeleteRow();
-        }
-
-        private void Button3_MouseClick(object sender, MouseEventArgs e)
-        {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
-        }
-
-        private void Button4_Click(object sender, EventArgs e)
-        {
-            GetDataFromFile();
-        }
-
-        private void Button5_Click(object sender, EventArgs e)
-        {
-            FindBiggestSumm();
-        }
-
-        private void Button6_Click(object sender, EventArgs e)
-        {
-            if (viewData.RowCount == 0)
-            {
-                MessageBox.Show("Сначала введите данные в таблицу");
-            }
-            else
-            {
-                SaveToFile();
-            }
-        }
-
-        private void Button7_Click(object sender, EventArgs e)
-        {
-            ResetHighlight();
-        }
-
-        private void TextBox3_MouseClick(object sender, MouseEventArgs e)
-        {
-            textBox3.Clear();
-        }
-
-        private void ViewData_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            viewData.Rows[viewData.RowCount - 1].Selected = false;
-
-            for (int i = 0; i < 4; i++)
-            {
-                viewData.Rows[viewData.RowCount - 1].Cells[i].Selected = false;
-            }
-        }
-
-        private void ViewData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            PutDataBack(e);
+            FindByFIO();
         }
     }
 }

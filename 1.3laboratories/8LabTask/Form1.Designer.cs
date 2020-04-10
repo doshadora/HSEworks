@@ -71,7 +71,6 @@
             this.viewData.Name = "viewData";
             this.viewData.Size = new System.Drawing.Size(544, 448);
             this.viewData.TabIndex = 0;
-            this.viewData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ViewData_CellClick);
             this.viewData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ViewData_CellDoubleClick);
             this.viewData.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ViewData_RowEnter);
             // 

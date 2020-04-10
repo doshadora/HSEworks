@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7LabTask", "7LabTask\7LabTa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8LabTask", "8LabTask\8LabTask.csproj", "{612C2528-5E0F-41B7-AF98-079CC477EF32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rodion", "rodion\rodion.csproj", "{0610D142-8F90-441C-A1E7-D29DF68A43F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{612C2528-5E0F-41B7-AF98-079CC477EF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{612C2528-5E0F-41B7-AF98-079CC477EF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{612C2528-5E0F-41B7-AF98-079CC477EF32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0610D142-8F90-441C-A1E7-D29DF68A43F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0610D142-8F90-441C-A1E7-D29DF68A43F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0610D142-8F90-441C-A1E7-D29DF68A43F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0610D142-8F90-441C-A1E7-D29DF68A43F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
