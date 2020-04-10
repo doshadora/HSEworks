@@ -408,17 +408,12 @@ namespace _8LabTask
         private void GetDataFromFile()
         {
             OpenFileDialog openFD = new OpenFileDialog();
-
-            // получаем выбранный файл
             if (openFD.ShowDialog() == DialogResult.Cancel)
                 return;
 
             try
             {
-                // читаем файл в строку
                 string filename = openFD.FileName;
-
-                // Включаем бинарное форматирование
                 BinaryFormatter bf = new BinaryFormatter();
                 using (FileStream f2 = new FileStream(filename, FileMode.Open))
                 {
