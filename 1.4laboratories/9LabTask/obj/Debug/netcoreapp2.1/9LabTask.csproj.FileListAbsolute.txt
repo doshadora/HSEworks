@@ -1,0 +1,11 @@
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\bin\Debug\netcoreapp2.1\9LabTask.deps.json
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\bin\Debug\netcoreapp2.1\9LabTask.runtimeconfig.json
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\bin\Debug\netcoreapp2.1\9LabTask.runtimeconfig.dev.json
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\bin\Debug\netcoreapp2.1\9LabTask.dll
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\bin\Debug\netcoreapp2.1\9LabTask.pdb
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\obj\Debug\netcoreapp2.1\9LabTask.csprojAssemblyReference.cache
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\obj\Debug\netcoreapp2.1\9LabTask.csproj.CoreCompileInputs.cache
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\obj\Debug\netcoreapp2.1\9LabTask.AssemblyInfoInputs.cache
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\obj\Debug\netcoreapp2.1\9LabTask.AssemblyInfo.cs
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\obj\Debug\netcoreapp2.1\9LabTask.dll
+D:\source\repos\HSEworks\1.4laboratories\9LabTask\obj\Debug\netcoreapp2.1\9LabTask.pdb

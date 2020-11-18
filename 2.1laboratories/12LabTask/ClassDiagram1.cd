@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="_12LabTask.Challenge">
+    <Position X="1" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAACAAAAAAEgAAAAAQAAAAAAIAEAAAAAAAAABA=</HashCode>
+      <FileName>Challenge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_12LabTask.Test">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgABAAAQAAAAAEIAAAAAAAAAAABA=</HashCode>
+      <FileName>Test.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_12LabTask.Program">
+    <Position X="5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_12LabTask.MyQueueEnumerator&lt;T&gt;">
+    <Position X="9" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAABAAAAADAIAAAAAAAAAAAoAAAAAAAAAA=</HashCode>
+      <FileName>MyQueueEnumerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_12LabTask.MyCollection&lt;T&gt;">
+    <Position X="7" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAABAADABABAQAAAAAAACEAAAQAgAAAAA=</HashCode>
+      <FileName>MyCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

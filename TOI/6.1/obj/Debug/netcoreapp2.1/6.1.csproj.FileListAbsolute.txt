@@ -1,0 +1,11 @@
+D:\source\repos\HSEworks\TOI\6.1\obj\Debug\netcoreapp2.1\6.1.csprojAssemblyReference.cache
+D:\source\repos\HSEworks\TOI\6.1\obj\Debug\netcoreapp2.1\6.1.csproj.CoreCompileInputs.cache
+D:\source\repos\HSEworks\TOI\6.1\obj\Debug\netcoreapp2.1\6.1.AssemblyInfoInputs.cache
+D:\source\repos\HSEworks\TOI\6.1\obj\Debug\netcoreapp2.1\6.1.AssemblyInfo.cs
+D:\source\repos\HSEworks\TOI\6.1\bin\Debug\netcoreapp2.1\6.1.deps.json
+D:\source\repos\HSEworks\TOI\6.1\bin\Debug\netcoreapp2.1\6.1.runtimeconfig.json
+D:\source\repos\HSEworks\TOI\6.1\bin\Debug\netcoreapp2.1\6.1.runtimeconfig.dev.json
+D:\source\repos\HSEworks\TOI\6.1\bin\Debug\netcoreapp2.1\6.1.dll
+D:\source\repos\HSEworks\TOI\6.1\bin\Debug\netcoreapp2.1\6.1.pdb
+D:\source\repos\HSEworks\TOI\6.1\obj\Debug\netcoreapp2.1\6.1.dll
+D:\source\repos\HSEworks\TOI\6.1\obj\Debug\netcoreapp2.1\6.1.pdb

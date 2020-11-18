@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="_13LabTask.CollectionHandlerEventArgs">
+    <Position X="8.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAQAAAAAAAAAA=</HashCode>
+      <FileName>CollectionHandlereEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_13LabTask.JournalEntry">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAEAAAAAAAAAAAAAAEAQAAAAAAAAAA=</HashCode>
+      <FileName>JournalEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_13LabTask.MyCollection&lt;T&gt;">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAABAADABAAAQAAAAAAACECAAAAgAAAAA=</HashCode>
+      <FileName>MyCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_13LabTask.MyNewCollection&lt;T&gt;">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAQAAAAIAAAAIACAAABAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MyNewCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_13LabTask.Journal&lt;T&gt;" Collapsed="true">
+    <Position X="4.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAACAAAAAAAAAAACAAIAAAAAA=</HashCode>
+      <FileName>Journal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Delegate Name="_13LabTask.CollectionHandler">
+    <Position X="2.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>MyNewCollection.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

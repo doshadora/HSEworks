@@ -1,0 +1,4 @@
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.csprojAssemblyReference.cache
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.csproj.CoreCompileInputs.cache
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfoInputs.cache
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfo.cs

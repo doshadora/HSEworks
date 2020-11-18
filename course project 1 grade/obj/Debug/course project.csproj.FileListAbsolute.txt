@@ -1,0 +1,10 @@
+D:\source\repos\HSEworks\course project\bin\Debug\course project.exe.config
+D:\source\repos\HSEworks\course project\bin\Debug\course project.exe
+D:\source\repos\HSEworks\course project\bin\Debug\course project.pdb
+D:\source\repos\HSEworks\course project\obj\Debug\course project.csprojAssemblyReference.cache
+D:\source\repos\HSEworks\course project\obj\Debug\course_project.Form1.resources
+D:\source\repos\HSEworks\course project\obj\Debug\course_project.Properties.Resources.resources
+D:\source\repos\HSEworks\course project\obj\Debug\course project.csproj.GenerateResource.cache
+D:\source\repos\HSEworks\course project\obj\Debug\course project.csproj.CoreCompileInputs.cache
+D:\source\repos\HSEworks\course project\obj\Debug\course project.exe
+D:\source\repos\HSEworks\course project\obj\Debug\course project.pdb
