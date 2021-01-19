@@ -21,28 +21,21 @@ namespace _13LabTask
             set;
         }
 
-        public string ChangedKeyObject //автосвойство изменённого ключа объекта
-        {
-            get;
-            set;
-        }
-
         public string TypeOfChanging //автосвойство типа изменения
         {
             get;
             set;
         }
-        public JournalEntry(string name, string type, string key, string obj) //конструктор создания элемента журнала
+        public JournalEntry(string name, string type, string obj) //конструктор создания элемента журнала
         {
             NameOfCollection = name;
             TypeOfChanging = type;
-            ChangedKeyObject = key;
             ChangedObject = obj;
         }
 
         public override string ToString() //вывод инфы о записи журнала
         {
-            return "В коллекции: " + NameOfCollection + " произошло изменение типа " + TypeOfChanging + "\n. для объекта: " + ChangedKeyObject + "=>" + ChangedObject;
+            return "В коллекции: " + NameOfCollection + " произошло изменение типа " + TypeOfChanging + "\n. для объекта: " + "=>" + ChangedObject;
         }
     }
 }

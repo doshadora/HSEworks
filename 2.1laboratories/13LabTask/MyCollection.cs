@@ -10,8 +10,6 @@ namespace _13LabTask
     class MyCollection<T> : IEnumerable<T>
         where T : Challenge
     {
-        public Queue<T> c = new Queue<T>();
-
         T[] queue;
         int count;
 
@@ -20,14 +18,15 @@ namespace _13LabTask
             get { return count; }
             set
             {
-                if (value >= 0)
-                    count = value;
-
+                if (value >= 0) count = value;
                 else throw new ArgumentOutOfRangeException();
             }
         }
 
-        public MyCollection(){}
+        public MyCollection()
+        {
+            queue = new T[0];
+        }
 
         public MyCollection(int size)
         {
@@ -37,11 +36,13 @@ namespace _13LabTask
 
         public MyCollection(ICollection<T> c)
         {
+            queue = new T[c.Count];
             Count = c.Count;
             int i = 0;
-
-            foreach (T elem in c)
-                queue[i++] = elem;
+            foreach (T el in c)
+            {
+                queue[i++] = el;
+            }
         }
 
         public void Add(T obj)
@@ -70,7 +71,7 @@ namespace _13LabTask
             }
         }
 
-        public T RemoveAt(int i)
+        public void Remove(T obj)
         {
             if (Count > 0)
             {
@@ -78,13 +79,13 @@ namespace _13LabTask
                 Count--;
                 T[] temp_q = new T[Count];
 
-                for (i = 0; i < Count; i++)
+                for (int i = 0; i < Count; i++)
                     temp_q[i] = queue[i + 1];
 
                 queue = temp_q;
-                return temp;
             }
-            else throw new InvalidOperationException("Коллекция пустая");
+            else
+                throw new InvalidOperationException("Коллекция пуста");
         }
 
         public T this[int index]
@@ -102,20 +103,6 @@ namespace _13LabTask
                     throw new IndexOutOfRangeException();
 
                 queue[index] = value;
-            }
-        }
-
-        public void ShowCollection()
-        {
-            if (this.Count == 0)
-                Console.WriteLine("Коллекция пустая");
-
-            else
-            {
-                foreach (var x in queue)
-                {
-                    Console.WriteLine(x);
-                }
             }
         }
 

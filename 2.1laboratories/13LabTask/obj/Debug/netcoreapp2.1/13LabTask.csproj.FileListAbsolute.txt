@@ -1,4 +1,52 @@
-D:\source\repos\HSEworks\2.1laboratories\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.csprojAssemblyReference.cache
 D:\source\repos\HSEworks\2.1laboratories\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.csproj.CoreCompileInputs.cache
 D:\source\repos\HSEworks\2.1laboratories\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfoInputs.cache
 D:\source\repos\HSEworks\2.1laboratories\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfo.cs
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask\bin\Debug\netcoreapp2.1\13LabTask.deps.json
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask\bin\Debug\netcoreapp2.1\13LabTask.runtimeconfig.json
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask\bin\Debug\netcoreapp2.1\13LabTask.runtimeconfig.dev.json
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask\bin\Debug\netcoreapp2.1\13LabTask.dll
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask\bin\Debug\netcoreapp2.1\13LabTask.pdb
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.csprojAssemblyReference.cache
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfoInputs.cache
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfo.cs
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.dll
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.pdb
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.deps.json
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.runtimeconfig.json
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.runtimeconfig.dev.json
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.dll
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.pdb
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.csprojAssemblyReference.cache
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfoInputs.cache
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfo.cs
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.dll
+C:\Users\demya\OneDrive\Рабочий стол\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.pdb
+C:\Users\User\Desktop\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.deps.json
+C:\Users\User\Desktop\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.runtimeconfig.json
+C:\Users\User\Desktop\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.runtimeconfig.dev.json
+C:\Users\User\Desktop\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.dll
+C:\Users\User\Desktop\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.pdb
+C:\Users\User\Desktop\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.csprojAssemblyReference.cache
+C:\Users\User\Desktop\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfo.cs
+C:\Users\User\Desktop\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.dll
+C:\Users\User\Desktop\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.pdb
+D:\Загрузки\13LabTask1\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.deps.json
+D:\Загрузки\13LabTask1\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.runtimeconfig.json
+D:\Загрузки\13LabTask1\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.runtimeconfig.dev.json
+D:\Загрузки\13LabTask1\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.dll
+D:\Загрузки\13LabTask1\13LabTask1\bin\Debug\netcoreapp2.1\13LabTask.pdb
+D:\Загрузки\13LabTask1\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.csprojAssemblyReference.cache
+D:\Загрузки\13LabTask1\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.csproj.CoreCompileInputs.cache
+D:\Загрузки\13LabTask1\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfoInputs.cache
+D:\Загрузки\13LabTask1\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.AssemblyInfo.cs
+D:\Загрузки\13LabTask1\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.dll
+D:\Загрузки\13LabTask1\13LabTask1\obj\Debug\netcoreapp2.1\13LabTask.pdb
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\bin\Debug\netcoreapp2.1\13LabTask.deps.json
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\bin\Debug\netcoreapp2.1\13LabTask.runtimeconfig.json
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\bin\Debug\netcoreapp2.1\13LabTask.runtimeconfig.dev.json
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\bin\Debug\netcoreapp2.1\13LabTask.dll
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\bin\Debug\netcoreapp2.1\13LabTask.pdb
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.dll
+D:\source\repos\HSEworks\2.1laboratories\13LabTask\obj\Debug\netcoreapp2.1\13LabTask.pdb

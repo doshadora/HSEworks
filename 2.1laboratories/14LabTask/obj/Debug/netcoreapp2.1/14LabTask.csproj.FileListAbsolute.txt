@@ -1,0 +1,11 @@
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\obj\Debug\netcoreapp2.1\14LabTask.csproj.CoreCompileInputs.cache
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\obj\Debug\netcoreapp2.1\14LabTask.AssemblyInfoInputs.cache
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\obj\Debug\netcoreapp2.1\14LabTask.AssemblyInfo.cs
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\bin\Debug\netcoreapp2.1\14LabTask.deps.json
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\bin\Debug\netcoreapp2.1\14LabTask.runtimeconfig.json
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\bin\Debug\netcoreapp2.1\14LabTask.runtimeconfig.dev.json
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\bin\Debug\netcoreapp2.1\14LabTask.dll
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\bin\Debug\netcoreapp2.1\14LabTask.pdb
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\obj\Debug\netcoreapp2.1\14LabTask.dll
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\obj\Debug\netcoreapp2.1\14LabTask.pdb
+D:\source\repos\HSEworks\2.1laboratories\14LabTask\obj\Debug\netcoreapp2.1\14LabTask.csprojAssemblyReference.cache

@@ -3,7 +3,6 @@ D:\source\repos\HSEworks\2.1laboratories\11LabTask_third\bin\Debug\netcoreapp2.1
 D:\source\repos\HSEworks\2.1laboratories\11LabTask_third\bin\Debug\netcoreapp2.1\11LabTask_third.runtimeconfig.dev.json
 D:\source\repos\HSEworks\2.1laboratories\11LabTask_third\bin\Debug\netcoreapp2.1\11LabTask_third.dll
 D:\source\repos\HSEworks\2.1laboratories\11LabTask_third\bin\Debug\netcoreapp2.1\11LabTask_third.pdb
-D:\source\repos\HSEworks\2.1laboratories\11LabTask_third\obj\Debug\netcoreapp2.1\11LabTask_third.csprojAssemblyReference.cache
 D:\source\repos\HSEworks\2.1laboratories\11LabTask_third\obj\Debug\netcoreapp2.1\11LabTask_third.csproj.CoreCompileInputs.cache
 D:\source\repos\HSEworks\2.1laboratories\11LabTask_third\obj\Debug\netcoreapp2.1\11LabTask_third.AssemblyInfoInputs.cache
 D:\source\repos\HSEworks\2.1laboratories\11LabTask_third\obj\Debug\netcoreapp2.1\11LabTask_third.AssemblyInfo.cs

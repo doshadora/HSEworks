@@ -13,12 +13,12 @@ namespace _13LabTask
     {
         public string CollectionName { get; set; }
 
-        public MyNewCollection() : base()
+        public MyNewCollection()
         {
             CollectionName = "NoName";
         }
 
-        public MyNewCollection(int size, string n) : base(size)
+        public MyNewCollection(string n)
         {
             CollectionName = n;
         }
@@ -28,37 +28,52 @@ namespace _13LabTask
             CollectionName = n;
         }
 
-        public new T this[int index]
-        {
-            get { return base[index]; }
-            set
-            {
-                CollectionReferenceChanged(this, new CollectionHandlerEventArgs("changed", base[index]));
-                base[index] = value;
-            }
-        }
-               
         public new void Add(T obj)
         {
-            OnCollectionCountChanged(this, new CollectionHandlerEventArgs("add", obj));
             base.Add(obj);
+            OnCollectionCountChanged(this, new CollectionHandlerEventArgs(this.CollectionName, "add", obj));
+        }
+
+        public void AddDefault()
+        {
+            T obj = (T)new Challenge();
+            base.Add(obj);
+            OnCollectionCountChanged(this, new CollectionHandlerEventArgs(this.CollectionName, "add", obj));
         }
 
         public bool Remove(int j)
         {
             if (j >= 0 && j < base.Count)
             {
-                OnCollectionCountChanged(this, new CollectionHandlerEventArgs("delete", base[j]));
-                base.RemoveAt(j);
+                OnCollectionCountChanged(this, new CollectionHandlerEventArgs(this.CollectionName, "delete", base[j]));
+                base.Remove(base[j]);
                 return true;
             }
-            else return false;
+            else
+            {
+                return false;
+            }
         }
 
-        public void AddDefaults()
+        public int Length //получение кол-ва содержащихся элементов в коллекции
         {
-        //    OnCollectionCountChanged(this, new CollectionHandlerEventArgs("add defaults", obj));
-        //    base.Add(obj);
+            get //только для чтения
+            {
+                return Count;
+            }
+        }
+
+        public new T this[int index]
+        {
+            get
+            {
+                return base[index];
+            }
+            set
+            {
+                OnCollectionReferenceChanged(this, new CollectionHandlerEventArgs(this.CollectionName, "changed", base[index]));
+                base[index] = value;
+            }
         }
 
         #region События
@@ -67,25 +82,19 @@ namespace _13LabTask
         #endregion
 
         #region Обработчики событий
-        //защищенные процедуры: проверка существования обработчика при попытке принять соответсвующего сообщения
+        //защищенные процедуры: проверка существования события при попытке принять соответсвующее сообщени
         public virtual void OnCollectionCountChanged(object source, CollectionHandlerEventArgs args)
         {
-            if (CollectionCountChanged != null)
-            {
-                CollectionCountChanged(source, args);
-            }
+            CollectionCountChanged?.Invoke(source, args);
         }
 
         public virtual void OnCollectionReferenceChanged(object source, CollectionHandlerEventArgs args)
         {
-            if (CollectionReferenceChanged != null)
-            {
-                CollectionReferenceChanged(source, args);
-            }
+            CollectionReferenceChanged?.Invoke(source, args);
         }
         #endregion
     }
 }
 
-    }
-}
+    
+

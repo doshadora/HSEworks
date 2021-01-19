@@ -22,29 +22,22 @@ namespace _13LabTask
             set;
         }
 
-        public object ChangedKeyElement
-        {
-            get;
-            set;
-        }
-
         public object ChangedElement
         {
             get;
             set;
         }
 
-        public CollectionHandlerEventArgs(string name, string type, object key, object element)
+        public CollectionHandlerEventArgs(string name, string type, object element)
         {
             NameOfCollection = name;
             TypeOfChanging = type;
-            ChangedKeyElement = key;
             ChangedElement = element;
         }
 
         public override string ToString()
         {
-            return "Произошло изменение " + TypeOfChanging + " в коллекции: " + NameOfCollection + "\n. Изменился элемент " + ChangedKeyElement + " => " + ChangedElement;
+            return "Произошло изменение " + TypeOfChanging + " в коллекции: " + NameOfCollection + "\n. Изменился элемент " + " => " + ChangedElement;
         }
     }
 }
