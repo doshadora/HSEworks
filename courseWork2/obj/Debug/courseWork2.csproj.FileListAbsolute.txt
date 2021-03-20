@@ -1,0 +1,16 @@
+D:\source\repos\HSEworks\courseWork2\bin\Debug\courseWork2.exe
+D:\source\repos\HSEworks\courseWork2\bin\Debug\courseWork2.exe.config
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.MainCust.resources
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.Properties.Resources.resources
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.SignIn.resources
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.csproj.GenerateResource.cache
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.csproj.CoreCompileInputs.cache
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.exe
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.pdb
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.csprojAssemblyReference.cache
+D:\source\repos\HSEworks\courseWork2\bin\Debug\courseWork2.pdb
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.MainShop.resources
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.AddressForm.resources
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.OrderStatus.resources
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.Catalogue.resources
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.Product.resources
