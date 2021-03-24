@@ -39,7 +39,6 @@
             this.logoPic = new System.Windows.Forms.PictureBox();
             this.groupName = new System.Windows.Forms.GroupBox();
             this.goToProfileEditButton = new System.Windows.Forms.Button();
-            this.goToLogEditButton = new System.Windows.Forms.Button();
             this.editAccountGroup = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.openAddressButton = new System.Windows.Forms.Button();
@@ -63,6 +62,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.saveLogButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.goToLogEditButton = new System.Windows.Forms.Button();
             this.cityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clothes_storeDataSet1 = new courseWork2.clothes_storeDataSet1();
             this.getAddressBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -126,6 +126,7 @@
             this.statsButton.TabIndex = 3;
             this.statsButton.Text = "Статистика по заказам";
             this.statsButton.UseVisualStyleBackColor = true;
+            this.statsButton.Click += new System.EventHandler(this.StatsButton_Click);
             // 
             // editStoreButton
             // 
@@ -175,12 +176,12 @@
             this.groupName.Controls.Add(this.goToProfileEditButton);
             this.groupName.Controls.Add(this.catalogueButton);
             this.groupName.Controls.Add(this.statsButton);
-            this.groupName.Controls.Add(this.goToLogEditButton);
             this.groupName.Controls.Add(this.ordersButton);
             this.groupName.Controls.Add(this.editStoreButton);
             this.groupName.Controls.Add(this.editAccountGroup);
             this.groupName.Controls.Add(this.editLogGroup);
             this.groupName.Controls.Add(this.mainPicStore);
+            this.groupName.Controls.Add(this.goToLogEditButton);
             this.groupName.Font = new System.Drawing.Font("Javanese Text", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupName.Location = new System.Drawing.Point(12, 71);
             this.groupName.Name = "groupName";
@@ -200,18 +201,6 @@
             this.goToProfileEditButton.UseVisualStyleBackColor = true;
             this.goToProfileEditButton.Visible = false;
             this.goToProfileEditButton.Click += new System.EventHandler(this.GoToProfileEditButton_Click);
-            // 
-            // goToLogEditButton
-            // 
-            this.goToLogEditButton.Font = new System.Drawing.Font("Javanese Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goToLogEditButton.Location = new System.Drawing.Point(15, 26);
-            this.goToLogEditButton.Name = "goToLogEditButton";
-            this.goToLogEditButton.Size = new System.Drawing.Size(190, 53);
-            this.goToLogEditButton.TabIndex = 10;
-            this.goToLogEditButton.Text = "Логин и пароль";
-            this.goToLogEditButton.UseVisualStyleBackColor = true;
-            this.goToLogEditButton.Visible = false;
-            this.goToLogEditButton.Click += new System.EventHandler(this.GoToLogEditButton_Click);
             // 
             // editAccountGroup
             // 
@@ -467,6 +456,18 @@
             this.label3.Size = new System.Drawing.Size(105, 25);
             this.label3.TabIndex = 13;
             this.label3.Text = "Новый пароль";
+            // 
+            // goToLogEditButton
+            // 
+            this.goToLogEditButton.Font = new System.Drawing.Font("Javanese Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goToLogEditButton.Location = new System.Drawing.Point(15, 26);
+            this.goToLogEditButton.Name = "goToLogEditButton";
+            this.goToLogEditButton.Size = new System.Drawing.Size(190, 53);
+            this.goToLogEditButton.TabIndex = 10;
+            this.goToLogEditButton.Text = "Логин и пароль";
+            this.goToLogEditButton.UseVisualStyleBackColor = true;
+            this.goToLogEditButton.Visible = false;
+            this.goToLogEditButton.Click += new System.EventHandler(this.GoToLogEditButton_Click);
             // 
             // cityBindingSource
             // 

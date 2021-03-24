@@ -50,7 +50,7 @@ namespace courseWork2
 
             using (SqlConnection connection = new SqlConnection(SignIn.connectionString))
             {
-                // подключение к базе
+                // подключение к базе-
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -64,6 +64,7 @@ namespace courseWork2
                 {
                     equall = false;
                 }
+
                 // закрытие подключения
                 connection.Close();
                 reader.Close();
@@ -406,6 +407,12 @@ namespace courseWork2
         {
             AddressForm AddressForm = new AddressForm();
             AddressForm.Show();
+        }
+
+        private void StatsButton_Click(object sender, EventArgs e)
+        {
+            Statistics Statistics = new Statistics();
+            Statistics.Show();
         }
 
         private void MainShop_Load(object sender, EventArgs e)

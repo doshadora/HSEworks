@@ -9,9 +9,11 @@ namespace courseWork2
         string sqlExtendGrid; // строка для добавления ограничений в запрос на заполнение таблицы
 
         public static int prodID;
-        int[] prodIDArray;
+        public static int[] prodIDArray;
 
         int numOfRows;
+
+        public static string prodName;
 
         public static bool infoClicked = false;
 
@@ -31,11 +33,6 @@ namespace courseWork2
         }
 
         #region Функции
-
-        public int GetLastAmount()
-        {
-            return 1;
-        }
 
         public void GetNumOfRows()
         {
@@ -74,7 +71,8 @@ namespace courseWork2
                     "dbo.product_size ON dbo.product_address.product_size_id = dbo.product_size.product_size_id INNER JOIN " +
                     "dbo.product ON dbo.product_size.product_id = dbo.product.product_id " +
                 "WHERE(dbo.store_address.store_id = '" + SignIn.userID + "' AND dbo.store_address.address_id IS NULL) " +
-                    "AND (dbo.product_address.store_product_amount IS NULL)" + sqlExtendGrid + "";
+                    "AND (dbo.product_address.store_product_amount IS NULL) " + sqlExtendGrid + "" +
+                    "ORDER BY dbo.product.product_code";
 
             GetNumOfRows();
             prodIDArray = new int[numOfRows];
@@ -198,6 +196,14 @@ namespace courseWork2
             Product.Show();
         }
 
+        private void AddToStoreButton_Click(object sender, EventArgs e)
+        {
+            prodName = productGrid.Rows[productGrid.CurrentRow.Index].Cells[1].Value.ToString();
+
+            AddProductToStore AddProductToStore = new AddProductToStore();
+            AddProductToStore.Show();
+        }
+
         #endregion
         #region Таблица
 
@@ -206,7 +212,9 @@ namespace courseWork2
             if (productGrid.Rows[productGrid.CurrentRow.Index].Cells[productGrid.CurrentCell.ColumnIndex].Value != null)
             {
                 fullInfoProdButton.Enabled = true;
-                fullInfoProdButton.Text = "Подробная информация";
+                fullInfoProdButton.Text = "Детали";
+
+                addToStoreButton.Enabled = true;
 
                 prodID = prodIDArray[productGrid.CurrentRow.Index];
             }
@@ -214,10 +222,12 @@ namespace courseWork2
 
         private void ProductGrid_Leave(object sender, EventArgs e)
         {
-            if (!fullInfoProdButton.ContainsFocus)
+            if (!fullInfoProdButton.ContainsFocus && !addToStoreButton.ContainsFocus)
             {
                 fullInfoProdButton.Enabled = false;
                 fullInfoProdButton.Text = "Выберите строку";
+
+                addToStoreButton.Enabled = false;
 
                 prodID = 0;
             }
@@ -228,6 +238,11 @@ namespace courseWork2
         private void GoBackToMainButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            FillProdGrid();
         }
     }
 }

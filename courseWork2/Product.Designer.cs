@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelProd = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,15 +38,32 @@
             this.tbProdName = new System.Windows.Forms.TextBox();
             this.tbProdInfo = new System.Windows.Forms.RichTextBox();
             this.tbProdCat = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.catDataSet = new courseWork2.catDataSet();
             this.tbProdSubCat = new System.Windows.Forms.ComboBox();
+            this.subcategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.subCatDataSet = new courseWork2.subCatDataSet();
             this.label5 = new System.Windows.Forms.Label();
             this.prodPhotoButton = new System.Windows.Forms.Button();
             this.prodSaveButton = new System.Windows.Forms.Button();
             this.goBackToMainButton = new System.Windows.Forms.Button();
             this.picPreview = new System.Windows.Forms.PictureBox();
             this.tbGender = new System.Windows.Forms.ComboBox();
+            this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.genderDataSet = new courseWork2.genderDataSet();
             this.label6 = new System.Windows.Forms.Label();
+            this.genderTableAdapter = new courseWork2.genderDataSetTableAdapters.genderTableAdapter();
+            this.categoryTableAdapter = new courseWork2.catDataSetTableAdapters.categoryTableAdapter();
+            this.subcategoryTableAdapter = new courseWork2.subCatDataSetTableAdapters.subcategoryTableAdapter();
+            this.tbPrice = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subcategoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCatDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPreview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // labelProd
@@ -117,26 +135,53 @@
             // 
             this.tbProdInfo.Location = new System.Drawing.Point(145, 105);
             this.tbProdInfo.Name = "tbProdInfo";
-            this.tbProdInfo.Size = new System.Drawing.Size(160, 62);
+            this.tbProdInfo.Size = new System.Drawing.Size(160, 35);
             this.tbProdInfo.TabIndex = 7;
             this.tbProdInfo.Text = "";
             // 
             // tbProdCat
             // 
+            this.tbProdCat.DataSource = this.categoryBindingSource;
+            this.tbProdCat.DisplayMember = "category_name";
             this.tbProdCat.FormattingEnabled = true;
             this.tbProdCat.Location = new System.Drawing.Point(145, 201);
             this.tbProdCat.Name = "tbProdCat";
             this.tbProdCat.Size = new System.Drawing.Size(160, 21);
             this.tbProdCat.TabIndex = 8;
+            this.tbProdCat.ValueMember = "category_id";
+            this.tbProdCat.SelectedIndexChanged += new System.EventHandler(this.TbProdCat_SelectedIndexChanged);
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataMember = "category";
+            this.categoryBindingSource.DataSource = this.catDataSet;
+            // 
+            // catDataSet
+            // 
+            this.catDataSet.DataSetName = "catDataSet";
+            this.catDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbProdSubCat
             // 
+            this.tbProdSubCat.DataSource = this.subcategoryBindingSource;
+            this.tbProdSubCat.DisplayMember = "subcategory_name";
             this.tbProdSubCat.Enabled = false;
             this.tbProdSubCat.FormattingEnabled = true;
             this.tbProdSubCat.Location = new System.Drawing.Point(145, 228);
             this.tbProdSubCat.Name = "tbProdSubCat";
             this.tbProdSubCat.Size = new System.Drawing.Size(160, 21);
             this.tbProdSubCat.TabIndex = 10;
+            this.tbProdSubCat.ValueMember = "subcategory_id";
+            // 
+            // subcategoryBindingSource
+            // 
+            this.subcategoryBindingSource.DataMember = "subcategory";
+            this.subcategoryBindingSource.DataSource = this.subCatDataSet;
+            // 
+            // subCatDataSet
+            // 
+            this.subCatDataSet.DataSetName = "subCatDataSet";
+            this.subCatDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label5
             // 
@@ -189,11 +234,25 @@
             // 
             // tbGender
             // 
+            this.tbGender.DataSource = this.genderBindingSource;
+            this.tbGender.DisplayMember = "gender_name";
             this.tbGender.FormattingEnabled = true;
             this.tbGender.Location = new System.Drawing.Point(145, 174);
             this.tbGender.Name = "tbGender";
             this.tbGender.Size = new System.Drawing.Size(160, 21);
             this.tbGender.TabIndex = 16;
+            this.tbGender.ValueMember = "gender_id";
+            this.tbGender.SelectedIndexChanged += new System.EventHandler(this.TbGender_SelectedIndexChanged);
+            // 
+            // genderBindingSource
+            // 
+            this.genderBindingSource.DataMember = "gender";
+            this.genderBindingSource.DataSource = this.genderDataSet;
+            // 
+            // genderDataSet
+            // 
+            this.genderDataSet.DataSetName = "genderDataSet";
+            this.genderDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label6
             // 
@@ -205,11 +264,42 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Пол";
             // 
+            // genderTableAdapter
+            // 
+            this.genderTableAdapter.ClearBeforeFill = true;
+            // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // subcategoryTableAdapter
+            // 
+            this.subcategoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbPrice
+            // 
+            this.tbPrice.Location = new System.Drawing.Point(145, 146);
+            this.tbPrice.Name = "tbPrice";
+            this.tbPrice.Size = new System.Drawing.Size(160, 20);
+            this.tbPrice.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Javanese Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(17, 146);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 25);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Цена";
+            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 325);
+            this.ClientSize = new System.Drawing.Size(480, 338);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.tbPrice);
             this.Controls.Add(this.tbGender);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.picPreview);
@@ -229,7 +319,13 @@
             this.Controls.Add(this.labelProd);
             this.Name = "Product";
             this.Text = "Product";
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subcategoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCatDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPreview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +350,16 @@
         private System.Windows.Forms.PictureBox picPreview;
         private System.Windows.Forms.ComboBox tbGender;
         private System.Windows.Forms.Label label6;
+        private genderDataSet genderDataSet;
+        private System.Windows.Forms.BindingSource genderBindingSource;
+        private genderDataSetTableAdapters.genderTableAdapter genderTableAdapter;
+        private catDataSet catDataSet;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private catDataSetTableAdapters.categoryTableAdapter categoryTableAdapter;
+        private subCatDataSet subCatDataSet;
+        private System.Windows.Forms.BindingSource subcategoryBindingSource;
+        private subCatDataSetTableAdapters.subcategoryTableAdapter subcategoryTableAdapter;
+        private System.Windows.Forms.TextBox tbPrice;
+        private System.Windows.Forms.Label label7;
     }
 }

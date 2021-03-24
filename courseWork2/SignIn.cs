@@ -38,10 +38,6 @@ namespace courseWork2
             {
                 sqlExpression = "SELECT TOP 1 store_id FROM store ORDER BY store_id DESC";
             }
-            else if (role == "1")
-            {
-                sqlExpression = "SELECT TOP 1 cat_subcategory_id FROM cat_subcatgory ORDER BY cat_subcategory_id DESC";
-            }
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -64,9 +60,7 @@ namespace courseWork2
                 }
             }
 
-            if (role != "1")
-                return id + 1;
-            else return id;
+            return id + 1;
         }
 
         public static bool IfLoginExists(bool exists)
