@@ -520,6 +520,7 @@
             this.Controls.Add(this.labelStore);
             this.Controls.Add(this.groupName);
             this.Name = "MainShop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainShop";
             this.Load += new System.EventHandler(this.MainShop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainPicStore)).EndInit();

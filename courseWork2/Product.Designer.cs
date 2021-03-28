@@ -318,6 +318,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelProd);
             this.Name = "Product";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product";
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catDataSet)).EndInit();

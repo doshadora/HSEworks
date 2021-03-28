@@ -165,6 +165,7 @@
             this.Controls.Add(this.tbFIO);
             this.Controls.Add(this.signInButton);
             this.Name = "SignIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "C&B";
             this.ResumeLayout(false);
             this.PerformLayout();

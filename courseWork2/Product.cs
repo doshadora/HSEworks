@@ -70,7 +70,7 @@ namespace courseWork2
             else if (param == 3)
                 sql = "SELECT store_address_id FROM store_address WHERE store_id = '" + SignIn.userID + "' AND address_id IS NULL;";
             else if (param == 4)
-                sql = "SELECT product_id FROM product ORDER BY product_id DESC";
+                sql = "SELECT TOP (1) product_id FROM product ORDER BY product_id DESC";
 
             using (SqlConnection connection = new SqlConnection(SignIn.connectionString))
             {
@@ -183,7 +183,7 @@ namespace courseWork2
                              " WHERE store_id = '" + param1 + "' AND address_id = '" + param2 + "'";
             }
 
-            using (SqlConnection connection = new SqlConnection(SignIn.connectionString))
+            using (SqlConnection connection = new SqlConnection(SignIn.connectionString)) // 
             {
                 // подключение к базе
                 connection.Open();

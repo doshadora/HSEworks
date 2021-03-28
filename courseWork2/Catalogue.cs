@@ -106,7 +106,6 @@ namespace courseWork2
         }
 
         #endregion
-
         #region Фильтры
 
         private void TbChooseCode_Enter(object sender, EventArgs e)
@@ -207,6 +206,11 @@ namespace courseWork2
         #endregion
         #region Таблица
 
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            FillProdGrid();
+        }
+
         private void ProductGrid_MouseClick(object sender, MouseEventArgs e)
         {
             if (productGrid.Rows[productGrid.CurrentRow.Index].Cells[productGrid.CurrentCell.ColumnIndex].Value != null)
@@ -238,11 +242,6 @@ namespace courseWork2
         private void GoBackToMainButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            FillProdGrid();
         }
     }
 }

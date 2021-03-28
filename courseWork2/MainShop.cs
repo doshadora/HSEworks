@@ -27,6 +27,20 @@ namespace courseWork2
             labelStore.Text = SignIn.userName.ToUpper();
 
             GetAllUserInfo();
+
+            if (storeInfo == null || storeLogo == null)
+            {
+                MessageBox.Show("Перейдите в раздел редактирования аккаунта и заполните все данные о магазине!");
+                ordersButton.Enabled = false;
+                statsButton.Enabled = false;
+                catalogueButton.Enabled = false;
+            }
+        }
+
+        private void MainShop_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "clothes_storeDataSet1.city". При необходимости она может быть перемещена или удалена.
+            this.cityTableAdapter.Fill(this.clothes_storeDataSet1.city);
         }
 
         #region Функции
@@ -415,12 +429,6 @@ namespace courseWork2
             Statistics.Show();
         }
 
-        private void MainShop_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "clothes_storeDataSet1.city". При необходимости она может быть перемещена или удалена.
-            this.cityTableAdapter.Fill(this.clothes_storeDataSet1.city);
-        }
-
         private void DeleteLogoPreviewButton_Click(object sender, EventArgs e)
         {
             logoPreview.Image = null;
@@ -432,126 +440,134 @@ namespace courseWork2
 
         private void SaveAccChangesButton_Click(object sender, EventArgs e)
         {
-            // информация о магазине
-            if (tbStoreInfo.Text != "" && tbStoreInfo.Text != storeInfo)
+            if (tbStoreInfo.Text != "" && tbStoreName.Text != "" && logoPreview.Image != null)
             {
-                // запрос для изменения логина и пароля
-                string sqlExpression = "UPDATE store SET store_info = '" + tbStoreInfo.Text + "' WHERE store_id = '" + SignIn.userID + "'";
-
-                using (SqlConnection connection = new SqlConnection(SignIn.connectionString))
+                // информация о магазине
+                if (tbStoreInfo.Text != "" && tbStoreInfo.Text != storeInfo)
                 {
-                    // подключение к базе
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int num = command.ExecuteNonQuery();
-                    connection.Close();
+                    // запрос для изменения логина и пароля
+                    string sqlExpression = "UPDATE store SET store_info = '" + tbStoreInfo.Text + "' WHERE store_id = '" + SignIn.userID + "'";
+
+                    using (SqlConnection connection = new SqlConnection(SignIn.connectionString))
+                    {
+                        // подключение к базе
+                        connection.Open();
+                        SqlCommand command = new SqlCommand(sqlExpression, connection);
+                        int num = command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+
+                    storeInfo = tbStoreInfo.Text;
+                    infoChanged = true;
                 }
 
-                storeInfo = tbStoreInfo.Text;
-                infoChanged = true;
-            }
-
-            // название магазина
-            if (tbStoreName.Text != "" && tbStoreName.Text != SignIn.userName)
-            {
-                // запрос для изменения логина и пароля
-                string sqlExpression = "UPDATE store SET store_name = '" + tbStoreName.Text + "' WHERE store_id = '" + SignIn.userID + "'";
-
-                using (SqlConnection connection = new SqlConnection(SignIn.connectionString))
+                // название магазина
+                if (tbStoreName.Text != "" && tbStoreName.Text != SignIn.userName)
                 {
-                    // подключение к базе
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    command.ExecuteNonQuery();
-                    connection.Close();
+                    // запрос для изменения логина и пароля
+                    string sqlExpression = "UPDATE store SET store_name = '" + tbStoreName.Text + "' WHERE store_id = '" + SignIn.userID + "'";
+
+                    using (SqlConnection connection = new SqlConnection(SignIn.connectionString))
+                    {
+                        // подключение к базе
+                        connection.Open();
+                        SqlCommand command = new SqlCommand(sqlExpression, connection);
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+
+                    SignIn.userName = tbStoreName.Text;
+                    labelStore.Text = SignIn.userName.ToUpper();
+
+                    nameChanged = true;
                 }
 
-                SignIn.userName = tbStoreName.Text;
-                labelStore.Text = SignIn.userName.ToUpper();
-
-                nameChanged = true;
-            }
-
-            // логотип магазина
-            if (logoPreview.Image != storeLogo)
-            {
-                string sqlExpression = "";
-
-                // запрос для изменения логотипа магазина
-                if (!logoDeleted)
+                // логотип магазина
+                if (logoPreview.Image != storeLogo)
                 {
-                    sqlExpression = "UPDATE store SET store_logo = @byteStoreLogo WHERE store_id = '" + SignIn.userID + "'";
-                    storeLogo = logoPreview.Image;
-                }
-                else
-                {
-                    sqlExpression = "UPDATE store SET store_logo = NULL WHERE store_id = '" + SignIn.userID + "'";
-                    storeLogo = null;
-                }
+                    string sqlExpression = "";
 
-                SqlConnection connection = new SqlConnection(SignIn.connectionString);
-
-                try
-                {
-                    // подключение к базе
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-
+                    // запрос для изменения логотипа магазина
                     if (!logoDeleted)
-                        command.Parameters.Add("@byteStoreLogo", SqlDbType.Image, byteStoreLogo.Length).Value = byteStoreLogo;
+                    {
+                        sqlExpression = "UPDATE store SET store_logo = @byteStoreLogo WHERE store_id = '" + SignIn.userID + "'";
+                        storeLogo = logoPreview.Image;
+                    }
+                    else
+                    {
+                        sqlExpression = "UPDATE store SET store_logo = NULL WHERE store_id = '" + SignIn.userID + "'";
+                        storeLogo = null;
+                    }
 
-                    command.ExecuteNonQuery();
-                    connection.Close();
+                    SqlConnection connection = new SqlConnection(SignIn.connectionString);
 
-                    logoChanged = true;
+                    try
+                    {
+                        // подключение к базе
+                        connection.Open();
+                        SqlCommand command = new SqlCommand(sqlExpression, connection);
 
-                    logoPic.Image = storeLogo;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+                        if (!logoDeleted)
+                            command.Parameters.Add("@byteStoreLogo", SqlDbType.Image, byteStoreLogo.Length).Value = byteStoreLogo;
 
-            if (nameChanged && infoChanged && logoChanged)
-            {
-                MessageBox.Show("Название магазина, его описание и логотип изменены");
-            }
-            else
-            {
-                if (nameChanged && infoChanged)
-                {
-                    MessageBox.Show("Название магазина и его описание изменены");
+                        command.ExecuteNonQuery();
+                        connection.Close();
+
+                        logoChanged = true;
+
+                        logoPic.Image = storeLogo;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
-                else if (nameChanged && logoChanged)
+
+                if (nameChanged && infoChanged && logoChanged)
                 {
-                    MessageBox.Show("Название магазина и логотип изменены");
-                }
-                else if (logoChanged && infoChanged)
-                {
-                    MessageBox.Show("Описание магазина и логотип изменены");
+                    MessageBox.Show("Название магазина, его описание и логотип изменены");
                 }
                 else
                 {
-                    if (nameChanged)
+                    if (nameChanged && infoChanged)
                     {
-                        MessageBox.Show("Название магазина изменено");
+                        MessageBox.Show("Название магазина и его описание изменены");
                     }
-                    else if (infoChanged)
+                    else if (nameChanged && logoChanged)
                     {
-                        MessageBox.Show("Описание магазина изменено");
+                        MessageBox.Show("Название магазина и логотип изменены");
                     }
-                    else if (logoChanged)
+                    else if (logoChanged && infoChanged)
                     {
-                        MessageBox.Show("Логотип магазина изменен");
+                        MessageBox.Show("Описание магазина и логотип изменены");
                     }
-                    else MessageBox.Show("Изменения не были произведены");
+                    else
+                    {
+                        if (nameChanged)
+                        {
+                            MessageBox.Show("Название магазина изменено");
+                        }
+                        else if (infoChanged)
+                        {
+                            MessageBox.Show("Описание магазина изменено");
+                        }
+                        else if (logoChanged)
+                        {
+                            MessageBox.Show("Логотип магазина изменен");
+                        }
+                        else MessageBox.Show("Изменения не были произведены");
+                    }
                 }
+
+                ordersButton.Enabled = true;
+                statsButton.Enabled = true;
+                catalogueButton.Enabled = true;
             }
+            else MessageBox.Show("Заполните все поля");
         }
 
         private void TbStoreName_Leave(object sender, EventArgs e)

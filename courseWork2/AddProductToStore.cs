@@ -21,10 +21,18 @@ namespace courseWork2
 
             GetStoreAddressIntoGrid();
 
+            button1.Visible = false;
+            button2.Visible = false;
+
             nameLabel.Text = "Добавление товара " + Catalogue.prodName.ToUpper() + " в точки продажи";
-
-
         }
+        private void AddProductToStore_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "addToStore_DataSet.size_type". При необходимости она может быть перемещена или удалена.
+            this.size_typeTableAdapter.Fill(this.addToStore_DataSet.size_type);
+        }
+
+        #region Функции
 
         public void GetStoreAddressIntoGrid()
         {
@@ -41,13 +49,13 @@ namespace courseWork2
                 command.Parameters.Add("@id", SqlDbType.Int).Value = SignIn.userID;
                 SqlDataReader reader = command.ExecuteReader();
 
-                address = new string[100, 4];
+                address = new string[100, 5];
 
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
-                        for (int j = 0; j < 4; j++)
+                        for (int j = 0; j < 5; j++)
                         {
                             address[i, j] = reader.GetValue(j).ToString();
                         }
@@ -77,7 +85,7 @@ namespace courseWork2
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;  // указание, что команда представляет хранимую процедуру
 
-                command.Parameters.Add("@address_id", SqlDbType.Int).Value = currentAddress;
+                command.Parameters.Add("@store_address_id", SqlDbType.Int).Value = Convert.ToInt32(currentAddress);
                 command.Parameters.Add("@product_size_id", SqlDbType.Int).Value = GetProdSizeID();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -87,7 +95,8 @@ namespace courseWork2
                     {
                         if (reader.IsDBNull(0))
                             amount = "0";
-                        else amount = reader.GetValue(0).ToString();
+                        else
+                            amount = reader.GetValue(0).ToString();
                     }
                 }
                 else
@@ -122,11 +131,8 @@ namespace courseWork2
             return id;
         }
 
-        private void AddProductToStore_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "addToStore_DataSet.size_type". При необходимости она может быть перемещена или удалена.
-            this.size_typeTableAdapter.Fill(this.addToStore_DataSet.size_type);
-        }
+        #endregion
+        #region Выбор параметров
 
         private void TbCountry_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -153,7 +159,7 @@ namespace courseWork2
 
             if (storeAddressGrid.Rows[storeAddressGrid.CurrentRow.Index].Cells[storeAddressGrid.CurrentCell.ColumnIndex].Value != null)
             {
-                currentAddress = address[storeAddressGrid.CurrentRow.Index, 3];
+                currentAddress = address[storeAddressGrid.CurrentRow.Index, 4];
                 tbAddress.Text = "Выберите страну";
 
                 label2.Visible = true;
@@ -165,11 +171,6 @@ namespace courseWork2
 
                 changed = true;
             }
-        }
-
-        private void GoBackToMainButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void TbSize_SelectionChangeCommitted(object sender, EventArgs e)
@@ -192,6 +193,19 @@ namespace courseWork2
             saveButton.Visible = true;
         }
 
+        private void TbNewAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        #endregion
+        #region Сохранение
+
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (tbNewAmount.Text != "")
@@ -205,16 +219,15 @@ namespace courseWork2
                 else if (Product.rowExists[0] == "no")
                 {
                     sqlString = "INSERT INTO product_size (product_id, size_id) VALUES ('" + Catalogue.prodID + "', '" + tbSize.SelectedValue + "'); ";
-                    prodSizeID = (GetProdSizeID() + 1).ToString();
+                    prodSizeID = Product.GetId(1).ToString();
                 }
 
-                Product.IfRowExists("store_address_id", SignIn.userID.ToString(), currentAddress);
-                sqlString += "INSERT INTO product_address (product_size_id, store_address_id, store_product_amount) VALUES ('" + prodSizeID + "', '" + Product.rowExists[1] + "', '" + tbNewAmount.Text + "');";
+                sqlString += "INSERT INTO product_address (product_size_id, store_address_id, store_product_amount) VALUES ('" + prodSizeID + "', '" + currentAddress + "', '" + tbNewAmount.Text + "');";
 
                 SqlConnection connection = new SqlConnection(SignIn.connectionString);
 
-                //try
-                //{
+                try
+                {
                     // подключение к базе
                     connection.Open();
                     SqlCommand command = new SqlCommand(sqlString, connection);
@@ -224,28 +237,32 @@ namespace courseWork2
 
                     button1.Visible = true;
 
-
                     tbNewAmount.Text = "";
                     tbCountry.Enabled = false;
                     tbSize.Enabled = false;
 
-                //}
-                //catch (Exception ex)
-                //{
-                //    MessageBox.Show(ex.ToString());
-                //}
+                    label4.Visible = false;
+                    label5.Visible = false;
+
+                    tbCurrentAmount.Visible = false;
+                    tbNewAmount.Visible = false;
+
+
+                }
+                catch (Exception ex)
+                {
+                    button2.Visible = true;
+                    MessageBox.Show(ex.Message);
+                }
             }
             else MessageBox.Show("Введите значение");
         }
 
-        private void TbNewAmount_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char number = e.KeyChar;
+        #endregion
 
-            if (!Char.IsDigit(number) && number != 8)
-            {
-                e.Handled = true;
-            }
+        private void GoBackToMainButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

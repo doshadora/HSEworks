@@ -192,6 +192,7 @@
             this.Controls.Add(this.productGrid);
             this.Controls.Add(this.labelCat);
             this.Name = "Catalogue";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalogue";
             ((System.ComponentModel.ISupportInitialize)(this.productGrid)).EndInit();
             this.ResumeLayout(false);

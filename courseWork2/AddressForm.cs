@@ -21,6 +21,14 @@ namespace courseWork2
             GetCityInfo();
         }
 
+        private void AddressForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "clothes_storeDataSet2.city". При необходимости она может быть перемещена или удалена.
+            this.cityTableAdapter.Fill(this.clothes_storeDataSet2.city);
+        }
+
+        #region Функции
+
         public int GetLastId()
         {
             int id = 0;
@@ -78,7 +86,7 @@ namespace courseWork2
                 reader.Close();
             }
         }
-
+        
         public void GetStoreAddressIntoGrid()
         {
             string sqlExpression = "Get_Address";
@@ -125,16 +133,8 @@ namespace courseWork2
             }
         }
 
-        private void BackToMainShopButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void AddressForm_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "clothes_storeDataSet2.city". При необходимости она может быть перемещена или удалена.
-            this.cityTableAdapter.Fill(this.clothes_storeDataSet2.city);
-        }
+        #endregion
+        #region Сохранение
 
         private void SaveAddressButton_Click(object sender, EventArgs e)
         {
@@ -210,7 +210,7 @@ namespace courseWork2
                     }
 
                     // запрос для добавления адреса
-                    string sqlExpression = "INSERT INTO address (address_street, city_id) VALUES ('" + address[i, 1] + "', '" + address[i, 2] + "');" +
+                    string sqlExpression = "INSERT INTO address (address_street, city_id) VALUES ('" + address[i, 1] + "', '" + address[i, 2] + "'); " +
                                            "INSERT INTO store_address (store_id, address_id) VALUES ('" + SignIn.userID + "', '" + GetLastId() + "');";
 
                     using (SqlConnection connection = new SqlConnection(SignIn.connectionString))
@@ -241,6 +241,13 @@ namespace courseWork2
 
             if (notChanged != null) MessageBox.Show("Ошибка! Строки под данными номерами не были изменены:" + notChanged + ".");
             else MessageBox.Show("Данные успешно сохранены!");
+        }
+
+        #endregion
+
+        private void BackToMainShopButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

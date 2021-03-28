@@ -48,8 +48,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Moq, Version=4.16.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>packages\Moq.4.16.1\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="NLipsum.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=593e1df460e1bda0, processorArchitecture=MSIL">
+      <HintPath>packages\NLipsum.1.1.0\lib\net20\NLipsum.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,6 +116,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>catDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="catsubcat_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>catsubcat_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="clothes_storeDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,6 +138,30 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>clothes_storeDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CustAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustAccount.Designer.cs">
+      <DependentUpon>CustAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustBag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustBag.Designer.cs">
+      <DependentUpon>CustBag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustOrder.Designer.cs">
+      <DependentUpon>CustOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustProduct.Designer.cs">
+      <DependentUpon>CustProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="genderDataSet.cs">
       <DependentUpon>genderDataSet.xsd</DependentUpon>
@@ -185,6 +238,18 @@
     <EmbeddedResource Include="Catalogue.resx">
       <DependentUpon>Catalogue.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustAccount.resx">
+      <DependentUpon>CustAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustBag.resx">
+      <DependentUpon>CustBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustOrder.resx">
+      <DependentUpon>CustOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustProduct.resx">
+      <DependentUpon>CustProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainCust.resx">
       <DependentUpon>MainCust.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +298,17 @@
     </None>
     <None Include="catDataSet.xss">
       <DependentUpon>catDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="catsubcat_DataSet.xsc">
+      <DependentUpon>catsubcat_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="catsubcat_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>catsubcat_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="catsubcat_DataSet.xss">
+      <DependentUpon>catsubcat_DataSet.xsd</DependentUpon>
     </None>
     <None Include="clothes_storeDataSet.xsc">
       <DependentUpon>clothes_storeDataSet.xsd</DependentUpon>
@@ -289,6 +365,7 @@
     <None Include="ordersStatus_DataSet.xss">
       <DependentUpon>ordersStatus_DataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

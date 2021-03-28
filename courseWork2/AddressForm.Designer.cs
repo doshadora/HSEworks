@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.storeAddressGrid = new System.Windows.Forms.DataGridView();
+            this.Col1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.cityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clothes_storeDataSet2 = new courseWork2.clothes_storeDataSet2();
+            this.Col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.getAddressBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clothes_storeDataSet = new courseWork2.clothes_storeDataSet();
             this.get_AddressTableAdapter = new courseWork2.clothes_storeDataSetTableAdapters.Get_AddressTableAdapter();
@@ -39,8 +41,6 @@
             this.backToMainShopButton = new System.Windows.Forms.Button();
             this.saveAddressButton = new System.Windows.Forms.Button();
             this.cityTableAdapter = new courseWork2.clothes_storeDataSet2TableAdapters.cityTableAdapter();
-            this.Col1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.storeAddressGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clothes_storeDataSet2)).BeginInit();
@@ -60,6 +60,21 @@
             this.storeAddressGrid.Size = new System.Drawing.Size(386, 188);
             this.storeAddressGrid.TabIndex = 0;
             // 
+            // Col1
+            // 
+            this.Col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Col1.DataSource = this.cityBindingSource;
+            this.Col1.DisplayMember = "city_name";
+            this.Col1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Col1.DisplayStyleForCurrentCellOnly = true;
+            this.Col1.HeaderText = "Город";
+            this.Col1.MaxDropDownItems = 100;
+            this.Col1.Name = "Col1";
+            this.Col1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Col1.ToolTipText = "Поиск по первой букве";
+            this.Col1.ValueMember = "city_name";
+            this.Col1.Width = 150;
+            // 
             // cityBindingSource
             // 
             this.cityBindingSource.DataMember = "city";
@@ -69,6 +84,12 @@
             // 
             this.clothes_storeDataSet2.DataSetName = "clothes_storeDataSet2";
             this.clothes_storeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // Col2
+            // 
+            this.Col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Col2.HeaderText = "Адрес";
+            this.Col2.Name = "Col2";
             // 
             // getAddressBindingSource
             // 
@@ -118,27 +139,6 @@
             // 
             this.cityTableAdapter.ClearBeforeFill = true;
             // 
-            // Col1
-            // 
-            this.Col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Col1.DataSource = this.cityBindingSource;
-            this.Col1.DisplayMember = "city_name";
-            this.Col1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Col1.DisplayStyleForCurrentCellOnly = true;
-            this.Col1.HeaderText = "Город";
-            this.Col1.MaxDropDownItems = 100;
-            this.Col1.Name = "Col1";
-            this.Col1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Col1.ToolTipText = "Поиск по первой букве";
-            this.Col1.ValueMember = "city_name";
-            this.Col1.Width = 150;
-            // 
-            // Col2
-            // 
-            this.Col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Col2.HeaderText = "Адрес";
-            this.Col2.Name = "Col2";
-            // 
             // AddressForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,6 +149,7 @@
             this.Controls.Add(this.storeNameLabel);
             this.Controls.Add(this.storeAddressGrid);
             this.Name = "AddressForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Адреса магазина";
             this.Load += new System.EventHandler(this.AddressForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.storeAddressGrid)).EndInit();

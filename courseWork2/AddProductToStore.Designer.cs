@@ -53,6 +53,7 @@
             this.size_typeTableAdapter = new courseWork2.AddToStore_DataSetTableAdapters.size_typeTableAdapter();
             this.sizeTableAdapter = new courseWork2.AddToStore_DataSetTableAdapters.sizeTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.storeAddressGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clothes_storeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clothesstoreDataSetBindingSource)).BeginInit();
@@ -275,11 +276,24 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(502, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 26);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "✅";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // AddProductToStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 231);
+            this.ClientSize = new System.Drawing.Size(544, 231);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.goBackToMainButton);
             this.Controls.Add(this.saveButton);
@@ -295,6 +309,7 @@
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.storeAddressGrid);
             this.Name = "AddProductToStore";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddProductToStore";
             this.Load += new System.EventHandler(this.AddProductToStore_Load);
             ((System.ComponentModel.ISupportInitialize)(this.storeAddressGrid)).EndInit();
@@ -335,5 +350,6 @@
         private System.Windows.Forms.BindingSource sizeBindingSource;
         private AddToStore_DataSetTableAdapters.sizeTableAdapter sizeTableAdapter;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
