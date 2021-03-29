@@ -139,12 +139,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>clothes_storeDataSet2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="CustAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CustAccount.Designer.cs">
-      <DependentUpon>CustAccount.cs</DependentUpon>
-    </Compile>
     <Compile Include="CustBag.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,11 +151,22 @@
     <Compile Include="CustOrder.Designer.cs">
       <DependentUpon>CustOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="custOrder_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>custOrder_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CustProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustProduct.Designer.cs">
       <DependentUpon>CustProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustShowOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustShowOrders.Designer.cs">
+      <DependentUpon>CustShowOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="genderDataSet.cs">
       <DependentUpon>genderDataSet.xsd</DependentUpon>
@@ -238,9 +243,6 @@
     <EmbeddedResource Include="Catalogue.resx">
       <DependentUpon>Catalogue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustAccount.resx">
-      <DependentUpon>CustAccount.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CustBag.resx">
       <DependentUpon>CustBag.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustProduct.resx">
       <DependentUpon>CustProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustShowOrders.resx">
+      <DependentUpon>CustShowOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainCust.resx">
       <DependentUpon>MainCust.cs</DependentUpon>
@@ -342,6 +347,17 @@
     </None>
     <None Include="clothes_storeDataSet2.xss">
       <DependentUpon>clothes_storeDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="custOrder_DataSet.xsc">
+      <DependentUpon>custOrder_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="custOrder_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>custOrder_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="custOrder_DataSet.xss">
+      <DependentUpon>custOrder_DataSet.xsd</DependentUpon>
     </None>
     <None Include="genderDataSet.xsc">
       <DependentUpon>genderDataSet.xsd</DependentUpon>

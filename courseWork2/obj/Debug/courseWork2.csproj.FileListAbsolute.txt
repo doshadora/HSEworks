@@ -31,3 +31,4 @@ D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.CustProduct.resources
 D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.CustOrder.resources
 D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.CustAccount.resources
 D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.CustBag.resources
+D:\source\repos\HSEworks\courseWork2\obj\Debug\courseWork2.CustShowOrders.resources

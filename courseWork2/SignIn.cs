@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace courseWork2
@@ -115,6 +116,7 @@ namespace courseWork2
         }
 
         private void LogInButton_Click(object sender, EventArgs e)
+
         {
             if (tbPhoneLog.Text.Length == 0)
             {
@@ -333,6 +335,20 @@ namespace courseWork2
             }
         }
 
+        private void TbPhone_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.Show("Если вы продавец, введите в скобках \"000\"", tbPhone, new Point(62, 12), 2000);
+        }
+
         #endregion
+
+        private void TbFIO_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+
+            toolTip1.Show("Если вы продавец, введите в поле название магазина", tbFIO, new Point(62, 12), 2000);
+        }
     }
 }

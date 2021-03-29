@@ -123,6 +123,7 @@
             this.tbProdCode.Name = "tbProdCode";
             this.tbProdCode.Size = new System.Drawing.Size(160, 20);
             this.tbProdCode.TabIndex = 5;
+            this.tbProdCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbProdCode_KeyPress);
             // 
             // tbProdName
             // 
@@ -282,6 +283,7 @@
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(160, 20);
             this.tbPrice.TabIndex = 17;
+            this.tbPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbPrice_KeyPress);
             // 
             // label7
             // 

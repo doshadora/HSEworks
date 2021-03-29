@@ -13,7 +13,10 @@ namespace courseWork2
         Byte[] prodPicByte;
 
         public static string[,] prodInfo;
+
         public static int prodID;
+        public static int storeID;
+        public static string lbl_Text;
 
         bool catChanged = false;
         bool subChanged = false;
@@ -125,7 +128,7 @@ namespace courseWork2
             string sqlExpression =
                 "SELECT DISTINCT dbo.product.product_code, dbo.product.product_name, dbo.product.product_info, " +
                 "dbo.gender.gender_name, dbo.category.category_name, dbo.subcategory.subcategory_name, " +
-                "dbo.product.product_photo, dbo.price.product_price " +
+                "dbo.product.product_photo, dbo.price.product_price, dbo.store.store_id, dbo.product.product_id " +
                 "FROM dbo.product INNER JOIN " +
                     "dbo.category_gender ON dbo.product.category_gender_id = dbo.category_gender.category_gender_id INNER JOIN " +
                     "dbo.cat_subcategory ON dbo.category_gender.cat_subcat_id = dbo.cat_subcategory.cat_subcat_id INNER JOIN " +
@@ -134,12 +137,14 @@ namespace courseWork2
                     "dbo.gender ON dbo.category_gender.gender_id = dbo.gender.gender_id INNER JOIN " +
                     "dbo.product_size ON dbo.product_size.product_id = dbo.product.product_id INNER JOIN " +
                     "dbo.product_address ON dbo.product_address.product_size_id = dbo.product_size.product_size_id INNER JOIN " +
-                    "dbo.price ON dbo.price.product_id = dbo.product.product_id " +
+                    "dbo.price ON dbo.price.product_id = dbo.product.product_id INNER JOIN " +
+                    "dbo.store_address ON dbo.store_address.store_address_id = dbo.product_address.store_address_id INNER JOIN " +
+                    "dbo.store ON dbo.store_address.store_id = dbo.store.store_id " +
                 "WHERE (dbo.product.product_id IN (" + temp + ")) AND dbo.price.product_price IN " +
                             "(SELECT product_price FROM price " +
                             "WHERE version_date IN (SELECT MAX(version_date) FROM price GROUP BY product_id))" + extendSql + "";
 
-            prodInfo = new string[numOfRows, 7];
+            prodInfo = new string[numOfRows, 9];
             picArray = new List<Image>();
 
             int i = 0;
@@ -162,6 +167,8 @@ namespace courseWork2
                         prodInfo[i, 4] = reader.GetValue(4).ToString();
                         prodInfo[i, 5] = reader.GetValue(5).ToString();
                         prodInfo[i, 6] = reader.GetValue(7).ToString();
+                        prodInfo[i, 7] = reader.GetValue(8).ToString();
+                        prodInfo[i, 8] = reader.GetValue(9).ToString();
 
                         if (!reader.IsDBNull(6))
                         {
@@ -199,7 +206,6 @@ namespace courseWork2
                 boxArray[i].Image = picArray[i];
                 boxArray[i].Name = i.ToString();
                 boxArray[i].Text = i.ToString();
-
 
                 boxArray[i].Size = new System.Drawing.Size(135, 195);
                 boxArray[i].SizeMode = PictureBoxSizeMode.StretchImage;
@@ -287,13 +293,8 @@ namespace courseWork2
             }
             else if (menuList.SelectedIndex == 1)
             {
-                CustOrder CustOrder = new CustOrder();
-                CustOrder.Show();
-            }
-            else if (menuList.SelectedIndex == 2)
-            {
-                CustAccount CustAccount = new CustAccount();
-                CustAccount.Show();
+                CustShowOrders CustShowOrders = new CustShowOrders();
+                CustShowOrders.Show();
             }
         }
 
@@ -302,10 +303,11 @@ namespace courseWork2
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
-            string lbl_Text;
             lbl_Text = (sender as PictureBox).Name;
 
-            prodID = Convert.ToInt32(lbl_Text);
+            prodID = Convert.ToInt32(prodInfo[Convert.ToInt32(lbl_Text), 8]);
+
+            storeID = Convert.ToInt32(prodInfo[Convert.ToInt32(lbl_Text), 7]);
 
             CustProduct CustProduct = new CustProduct();
             CustProduct.Show();

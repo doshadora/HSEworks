@@ -66,11 +66,10 @@
             this.menuList.ItemHeight = 25;
             this.menuList.Items.AddRange(new object[] {
             "😠 Моя корзина",
-            "😨 Мои заказы",
-            "😭 Мой аккаунт"});
+            "😨 Мои заказы"});
             this.menuList.Location = new System.Drawing.Point(609, 38);
             this.menuList.Name = "menuList";
-            this.menuList.Size = new System.Drawing.Size(128, 79);
+            this.menuList.Size = new System.Drawing.Size(128, 54);
             this.menuList.TabIndex = 7;
             this.menuList.Visible = false;
             this.menuList.SelectedIndexChanged += new System.EventHandler(this.MenuList_SelectedIndexChanged);

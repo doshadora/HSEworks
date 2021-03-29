@@ -71,6 +71,10 @@ namespace courseWork2
                 sql = "SELECT store_address_id FROM store_address WHERE store_id = '" + SignIn.userID + "' AND address_id IS NULL;";
             else if (param == 4)
                 sql = "SELECT TOP (1) product_id FROM product ORDER BY product_id DESC";
+            else if (param == 5)
+                sql = "SELECT TOP (1) cheque_id FROM cheque WHERE cust_id = '" + SignIn.userID + "'";
+            else if (param == 6)
+                sql = "SELECT TOP (1) cheque_prod_id FROM cheque_set ORDER BY cheque_prod_id DESC";
 
             using (SqlConnection connection = new SqlConnection(SignIn.connectionString))
             {
@@ -79,11 +83,11 @@ namespace courseWork2
                 SqlCommand command = new SqlCommand(sql, connection);
 
                 id = Convert.ToInt32(command.ExecuteScalar());
-                
+
                 // закрытие подключения
                 connection.Close();
 
-                if (param != 3)
+                if (param != 3 && param != 5 && param != 6)
                     return id + 1;
                 else return id;
             }
@@ -157,12 +161,16 @@ namespace courseWork2
             {
                 if (param2 == null)
                 {
-                    param2 = GetId(3).ToString();
+                    sql = "SELECT " + rowID + "" +
+                                                 " FROM cat_subcategory" +
+                                                 " WHERE category_id = '" + param1 + "' AND subcategory_id = '11'";
                 }
-                sql = "SELECT " + rowID + "" +
-                             " FROM cat_subcategory" +
-                             " WHERE category_id = '" + param1 + "' AND subcategory_id = '" + param2 + "'";
-
+                else
+                {
+                    sql = "SELECT " + rowID + "" +
+                                                 " FROM cat_subcategory" +
+                                                 " WHERE category_id = '" + param1 + "' AND subcategory_id = '" + param2 + "'";
+                }
             }
             else if (rowID == "category_gender_id")
             {
@@ -242,13 +250,14 @@ namespace courseWork2
             {
                 this.categoryTableAdapter.FillBy(this.catDataSet.category, (this.tbGender.Text));
 
-                tbGender.SelectedIndex = tbGender.FindString(info[3]);
-
-                int i = 0;
-
-                info[4] = tbProdCat.Text;
-
-                tbProdCat.SelectedIndex = tbProdCat.FindString(info[4]);
+                if (tbProdCat.Items.Count > 0)
+                {
+                    tbProdCat.SelectedIndex = 0;
+                    if (tbProdCat.Items.Count >= 1 && tbProdCat.Text != "")
+                    {
+                        tbProdCat.Enabled = true;
+                    }
+                }
             }
             catch (System.Exception ex)
             {
@@ -264,17 +273,25 @@ namespace courseWork2
             {
                 this.subcategoryTableAdapter.FillBy(this.subCatDataSet.subcategory, (this.tbProdCat.Text));
 
-                if (tbProdSubCat.Items.Count == 0)
+                if (tbProdSubCat.Items.Count > 0)
                 {
-                    tbProdSubCat.Text = "отсутсвуют";
-                    tbProdSubCat.Enabled = false;
+                    tbProdSubCat.SelectedIndex = 0;
+                    if (tbProdSubCat.Items.Count >= 1 && tbProdSubCat.Text != "")
+                    {
+                        tbProdSubCat.Enabled = true;
+                    }
+                    else
+                    {
+                        tbProdSubCat.Text = "отсуствуют";
+                        tbProdSubCat.Enabled = false;
+                    }
                 }
                 else
                 {
-                    tbProdSubCat.Enabled = true;
-
-                    tbProdSubCat.SelectedIndex = tbProdSubCat.FindString(info[5]);
+                    tbProdSubCat.Text = "отсуствуют";
+                    tbProdSubCat.Enabled = false;
                 }
+
             }
             catch (System.NullReferenceException ex)
             {
@@ -355,8 +372,8 @@ namespace courseWork2
 
                 if (catGenYes && catSubYes)
                 {
-                    sqlString = "INSERT INTO product (product_code, product_name, product_info, product_photo, category_gender_id) VALUES ('" + Convert.ToInt64(info[0]) + "', '" + info[1] + "', '" + info[2] + "', @photo, '" + Convert.ToInt32(catGenID) + "'); " +
-                                "INSERT INTO product_size (product_id, size_id) VALUES ('" + GetId(4) + "', NULL); " +
+                    sqlString = "INSERT INTO product (product_code, product_name, product_info, product_photo, category_gender_id) VALUES ('" + Convert.ToInt64(info[0]) + "', '" + info[1] + "', '" + info[2] + "', @photo, '" + catGenID + "'); " +
+                                "INSERT INTO product_size (product_id) VALUES ('" + GetId(4) + "'); " +
                                 "INSERT INTO product_address (product_size_id, store_address_id) VALUES ('" + GetId(1) + "', '" + GetId(3) + "'); ";
 
                     if (info[6] != temp)
@@ -405,6 +422,26 @@ namespace courseWork2
         {
             update = true;
             this.Close();
+        }
+
+        private void TbProdCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TbPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

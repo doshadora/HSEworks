@@ -62,6 +62,7 @@
             this.tbFIO.Text = "ФИО";
             this.tbFIO.Visible = false;
             this.tbFIO.Click += new System.EventHandler(this.TbFIO_Click);
+            this.tbFIO.MouseHover += new System.EventHandler(this.TbFIO_MouseHover);
             // 
             // tbPassword
             // 
@@ -115,6 +116,7 @@
             this.tbPhone.TabIndex = 9;
             this.tbPhone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.tbPhone.Visible = false;
+            this.tbPhone.MouseHover += new System.EventHandler(this.TbPhone_MouseHover);
             // 
             // tbGoToSignIn
             // 
@@ -158,12 +160,12 @@
             this.Controls.Add(this.labelLogIn);
             this.Controls.Add(this.tbGoToSignIn);
             this.Controls.Add(this.tbPhone);
-            this.Controls.Add(this.tbPhoneLog);
             this.Controls.Add(this.logInButton);
             this.Controls.Add(this.tbPasswordLog);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbFIO);
             this.Controls.Add(this.signInButton);
+            this.Controls.Add(this.tbPhoneLog);
             this.Name = "SignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "C&B";

@@ -209,9 +209,6 @@
         private System.Windows.Forms.TextBox tbChooseCode;
         private System.Windows.Forms.TextBox tbChooseName;
         private System.Windows.Forms.Button applyFilterButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button goBackToMainButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameCol;

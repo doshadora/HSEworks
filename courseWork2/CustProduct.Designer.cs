@@ -36,7 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.prodPic = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.ActionButton = new System.Windows.Forms.Button();
+            this.actionButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.prodPic)).BeginInit();
             this.SuspendLayout();
@@ -118,15 +118,15 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "Информация о товаре";
             // 
-            // ActionButton
+            // actionButton
             // 
-            this.ActionButton.Location = new System.Drawing.Point(12, 258);
-            this.ActionButton.Name = "ActionButton";
-            this.ActionButton.Size = new System.Drawing.Size(111, 24);
-            this.ActionButton.TabIndex = 29;
-            this.ActionButton.Text = "ActionButton";
-            this.ActionButton.UseVisualStyleBackColor = true;
-            this.ActionButton.Click += new System.EventHandler(this.ActionButton_Click);
+            this.actionButton.Location = new System.Drawing.Point(12, 258);
+            this.actionButton.Name = "actionButton";
+            this.actionButton.Size = new System.Drawing.Size(111, 24);
+            this.actionButton.TabIndex = 29;
+            this.actionButton.Text = "ActionButton";
+            this.actionButton.UseVisualStyleBackColor = true;
+            this.actionButton.Click += new System.EventHandler(this.ActionButton_Click);
             // 
             // button2
             // 
@@ -144,7 +144,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 291);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.ActionButton);
+            this.Controls.Add(this.actionButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.prodPic);
             this.Controls.Add(this.label7);
@@ -172,7 +172,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox prodPic;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button ActionButton;
+        private System.Windows.Forms.Button actionButton;
         private System.Windows.Forms.Button button2;
     }
 }

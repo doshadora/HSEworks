@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.bagGrid = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.makeOrderButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.makeOrderButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bagGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,6 +42,8 @@
             // 
             this.bagGrid.AllowUserToAddRows = false;
             this.bagGrid.AllowUserToDeleteRows = false;
+            this.bagGrid.AllowUserToResizeColumns = false;
+            this.bagGrid.AllowUserToResizeRows = false;
             this.bagGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bagGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -54,6 +56,26 @@
             this.bagGrid.Size = new System.Drawing.Size(546, 272);
             this.bagGrid.TabIndex = 0;
             this.bagGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BagGrid_MouseClick);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Наименование товара";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Цена";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Магазин";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // label1
             // 
@@ -84,26 +106,6 @@
             this.button2.Text = "Вернуться к каталогу";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Наименование товара";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Цена";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Магазин";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // CustBag
             // 

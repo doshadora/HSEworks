@@ -11,6 +11,8 @@ namespace courseWork2
         public static string prodSelected;
         public static string storeSelected;
 
+        public static string chequeID;
+
         public CustBag()
         {
             InitializeComponent();
@@ -19,6 +21,9 @@ namespace courseWork2
 
             FillBagGrid();
         }
+
+
+        #region Функции
 
         public void FillBagGrid()
         {
@@ -41,8 +46,10 @@ namespace courseWork2
                     while (reader.Read())
                     {
                         bagGrid.Rows.Add();
-                        prods[i,0] = reader.GetValue(3).ToString();
+                        prods[i, 0] = reader.GetValue(3).ToString();
                         prods[i, 1] = reader.GetValue(4).ToString();
+
+                        chequeID = reader.GetValue(5).ToString();
 
                         for (int j = 0; j < 3; j++)
                         {
@@ -57,35 +64,13 @@ namespace courseWork2
             }
         }
 
-        public void FindRow()
-        {
-            string sql1 = "SELECT store_address_id FROM store_address WHERE store_id = '" + prodSelected + "' AND address_id IS NULL";
 
-
-
-
-            string sql = "SELECT product_address_id FROM product_address_id WHERE product_address_id = '" + prodAdr + "'";
-        }
+        #endregion
 
         private void MakeOrderButton_Click(object sender, EventArgs e)
         {
-            string sqlExpression = "INSERT INTO cheque (cust_id) VALUES ('" + SignIn.userID + "')";
-
-            FindRow();
-
-            using (SqlConnection connection = new SqlConnection(SignIn.connectionString))
-            {
-                // подключение к базе
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
-
             CustOrder CustOrder = new CustOrder();
             CustOrder.Show();
-
-            this.Close();
         }
 
         private void Button2_Click(object sender, EventArgs e)
