@@ -229,11 +229,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>storeOrders_DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="subCatDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>subCatDataSet.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AddProductToStore.resx">
       <DependentUpon>AddProductToStore.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,17 +407,6 @@
     </None>
     <None Include="storeOrders_DataSet.xss">
       <DependentUpon>storeOrders_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="subCatDataSet.xsc">
-      <DependentUpon>subCatDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="subCatDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>subCatDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="subCatDataSet.xss">
-      <DependentUpon>subCatDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
