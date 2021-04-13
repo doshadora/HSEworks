@@ -176,12 +176,12 @@
             this.groupName.Controls.Add(this.goToProfileEditButton);
             this.groupName.Controls.Add(this.catalogueButton);
             this.groupName.Controls.Add(this.statsButton);
-            this.groupName.Controls.Add(this.ordersButton);
             this.groupName.Controls.Add(this.editStoreButton);
             this.groupName.Controls.Add(this.editAccountGroup);
             this.groupName.Controls.Add(this.editLogGroup);
             this.groupName.Controls.Add(this.mainPicStore);
             this.groupName.Controls.Add(this.goToLogEditButton);
+            this.groupName.Controls.Add(this.ordersButton);
             this.groupName.Font = new System.Drawing.Font("Javanese Text", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupName.Location = new System.Drawing.Point(12, 71);
             this.groupName.Name = "groupName";
@@ -193,7 +193,7 @@
             // goToProfileEditButton
             // 
             this.goToProfileEditButton.Font = new System.Drawing.Font("Javanese Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goToProfileEditButton.Location = new System.Drawing.Point(15, 104);
+            this.goToProfileEditButton.Location = new System.Drawing.Point(15, 26);
             this.goToProfileEditButton.Name = "goToProfileEditButton";
             this.goToProfileEditButton.Size = new System.Drawing.Size(190, 53);
             this.goToProfileEditButton.TabIndex = 11;
@@ -460,7 +460,7 @@
             // goToLogEditButton
             // 
             this.goToLogEditButton.Font = new System.Drawing.Font("Javanese Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goToLogEditButton.Location = new System.Drawing.Point(15, 26);
+            this.goToLogEditButton.Location = new System.Drawing.Point(15, 104);
             this.goToLogEditButton.Name = "goToLogEditButton";
             this.goToLogEditButton.Size = new System.Drawing.Size(190, 53);
             this.goToLogEditButton.TabIndex = 10;

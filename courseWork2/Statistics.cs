@@ -18,7 +18,7 @@ namespace courseWork2
         DateTime dateOne;
         DateTime dateTwo;
 
-        string date;
+        string date = "";
 
         public Statistics()
         {

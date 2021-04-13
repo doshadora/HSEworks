@@ -196,7 +196,7 @@ namespace courseWork2
             int y1Loc = 205;
 
             boxArray = new PictureBox[numOfRows];
-            int j;
+            int j = 1;
 
             for (int i = 0; i < numOfRows; i++)
             {
@@ -221,10 +221,7 @@ namespace courseWork2
                 boxArray[i].Location = new Point(xLoc, yLoc);
                 priceLabel.Location = new Point(xLoc, y1Loc);
 
-                if (i <= 4) j = 3;
-                else j = 4;
-
-                if (i % j != 0 || i == 0)
+                if (j % 4 != 0 || i == 0)
                 {
                     xLoc += 141;
                 }
@@ -234,6 +231,7 @@ namespace courseWork2
                     yLoc += 226;
                     y1Loc += 226;
                 }
+                j++;
             }
         }
 

@@ -361,6 +361,10 @@ namespace courseWork2
             StatOpened();
             GetInfo();
 
+            var screen = Screen.FromControl(this);
+            this.Top = screen.Bounds.Height / 2 - this.Height / 2;
+            this.Left = screen.Bounds.Width / 2 - this.Width / 2;
+
             orderGrid.Columns.Clear();
 
             if (tbChooseCity.Text == "" && tbChooseStat.Text == "")
