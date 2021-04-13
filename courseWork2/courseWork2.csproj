@@ -97,47 +97,11 @@
     <Compile Include="AddressForm.Designer.cs">
       <DependentUpon>AddressForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddToStore_DataSet.cs">
-      <DependentUpon>AddToStore_DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AddToStore_DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddToStore_DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Catalogue.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Catalogue.Designer.cs">
       <DependentUpon>Catalogue.cs</DependentUpon>
-    </Compile>
-    <Compile Include="catDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>catDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="catsubcat_DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>catsubcat_DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="clothes_storeDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>clothes_storeDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="clothes_storeDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>clothes_storeDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="clothes_storeDataSet2.cs">
-      <DependentUpon>clothes_storeDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="clothes_storeDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>clothes_storeDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="CustBag.cs">
       <SubType>Form</SubType>
@@ -151,11 +115,6 @@
     <Compile Include="CustOrder.Designer.cs">
       <DependentUpon>CustOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="custOrder_DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>custOrder_DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="CustProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,14 +127,6 @@
     <Compile Include="CustShowOrders.Designer.cs">
       <DependentUpon>CustShowOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="genderDataSet.cs">
-      <DependentUpon>genderDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="genderDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>genderDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="MainCust.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,11 +138,6 @@
     </Compile>
     <Compile Include="MainShop.Designer.cs">
       <DependentUpon>MainShop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ordersStatus_DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ordersStatus_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="OrderStatus.cs">
       <SubType>Form</SubType>
@@ -218,16 +164,6 @@
     </Compile>
     <Compile Include="Statistics.Designer.cs">
       <DependentUpon>Statistics.cs</DependentUpon>
-    </Compile>
-    <Compile Include="statNames_DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>statNames_DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="storeOrders_DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>storeOrders_DataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddProductToStore.resx">
       <DependentUpon>AddProductToStore.cs</DependentUpon>
@@ -277,105 +213,6 @@
     <EmbeddedResource Include="Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="AddToStore_DataSet.xsc">
-      <DependentUpon>AddToStore_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="AddToStore_DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AddToStore_DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="AddToStore_DataSet.xss">
-      <DependentUpon>AddToStore_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="catDataSet.xsc">
-      <DependentUpon>catDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="catDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>catDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="catDataSet.xss">
-      <DependentUpon>catDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="catsubcat_DataSet.xsc">
-      <DependentUpon>catsubcat_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="catsubcat_DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>catsubcat_DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="catsubcat_DataSet.xss">
-      <DependentUpon>catsubcat_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="clothes_storeDataSet.xsc">
-      <DependentUpon>clothes_storeDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="clothes_storeDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>clothes_storeDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="clothes_storeDataSet.xss">
-      <DependentUpon>clothes_storeDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="clothes_storeDataSet1.xsc">
-      <DependentUpon>clothes_storeDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="clothes_storeDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>clothes_storeDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="clothes_storeDataSet1.xss">
-      <DependentUpon>clothes_storeDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="clothes_storeDataSet2.xsc">
-      <DependentUpon>clothes_storeDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="clothes_storeDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>clothes_storeDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="clothes_storeDataSet2.xss">
-      <DependentUpon>clothes_storeDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="custOrder_DataSet.xsc">
-      <DependentUpon>custOrder_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="custOrder_DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>custOrder_DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="custOrder_DataSet.xss">
-      <DependentUpon>custOrder_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="genderDataSet.xsc">
-      <DependentUpon>genderDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="genderDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>genderDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="genderDataSet.xss">
-      <DependentUpon>genderDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ordersStatus_DataSet.xsc">
-      <DependentUpon>ordersStatus_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ordersStatus_DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ordersStatus_DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ordersStatus_DataSet.xss">
-      <DependentUpon>ordersStatus_DataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -386,28 +223,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="statNames_DataSet.xsc">
-      <DependentUpon>statNames_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="statNames_DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>statNames_DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="statNames_DataSet.xss">
-      <DependentUpon>statNames_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="storeOrders_DataSet.xsc">
-      <DependentUpon>storeOrders_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="storeOrders_DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>storeOrders_DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="storeOrders_DataSet.xss">
-      <DependentUpon>storeOrders_DataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
