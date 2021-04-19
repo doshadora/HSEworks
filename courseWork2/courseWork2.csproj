@@ -100,9 +100,6 @@
     <Compile Include="AddProductToStore.Designer.cs">
       <DependentUpon>AddProductToStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="address.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="AddressForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,39 +120,15 @@
     <Compile Include="Catalogue.Designer.cs">
       <DependentUpon>Catalogue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalogue_GetLastAmount_Result.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="catDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>catDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="category.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="category_gender.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="catsubcat_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>catsubcat_DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="cat_subcategory.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="cheque.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="cheque_product_status.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="cheque_set.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="city.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="clothes_storeDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -175,29 +148,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>clothes_storeDataSet2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="csEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>csEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="csEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="csEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>csEntities.edmx</DependentUpon>
-    </Compile>
     <Compile Include="CustBag.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustBag.Designer.cs">
       <DependentUpon>CustBag.cs</DependentUpon>
-    </Compile>
-    <Compile Include="customer.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CustOrder.cs">
       <SubType>Form</SubType>
@@ -222,9 +177,6 @@
     <Compile Include="CustShowOrders.Designer.cs">
       <DependentUpon>CustShowOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="gender.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="genderDataSet.cs">
       <DependentUpon>genderDataSet.xsd</DependentUpon>
     </Compile>
@@ -232,18 +184,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>genderDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="GetCustBag_Result.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GetCustOrder_Result.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GetStats_Result.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Get_Address_Result.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="MainCust.cs">
       <SubType>Form</SubType>
@@ -268,24 +208,6 @@
     <Compile Include="OrderStatus.Designer.cs">
       <DependentUpon>OrderStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderStatus_NoFilters_Result.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="price.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Product.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Product.Designer.cs">
-      <DependentUpon>Product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="product_address.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="product_size.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,18 +216,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="size.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="size_type.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Statistics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,30 +227,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>statNames_DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="status_of_cheque.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="store.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="storeOrders_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>storeOrders_DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="store_address.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="subCatDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>subCatDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="subcategory.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>csEntities.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddProductToStore.resx">
       <DependentUpon>AddProductToStore.cs</DependentUpon>
@@ -371,9 +266,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OrderStatus.resx">
       <DependentUpon>OrderStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Product.resx">
-      <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -455,13 +347,6 @@
     </None>
     <None Include="clothes_storeDataSet2.xss">
       <DependentUpon>clothes_storeDataSet2.xsd</DependentUpon>
-    </None>
-    <EntityDeploy Include="csEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>csEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="csEntities.edmx.diagram">
-      <DependentUpon>csEntities.edmx</DependentUpon>
     </None>
     <None Include="custOrder_DataSet.xsc">
       <DependentUpon>custOrder_DataSet.xsd</DependentUpon>
@@ -554,18 +439,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="csEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>csEntities.Context.cs</LastGenOutput>
-      <DependentUpon>csEntities.edmx</DependentUpon>
-    </Content>
-    <Content Include="csEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>csEntities.edmx</DependentUpon>
-      <LastGenOutput>csEntities.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
