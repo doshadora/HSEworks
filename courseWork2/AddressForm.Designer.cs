@@ -30,80 +30,33 @@
         {
             this.components = new System.ComponentModel.Container();
             this.storeAddressGrid = new System.Windows.Forms.DataGridView();
-            this.Col1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cityBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clothes_storeDataSet2 = new courseWork2.clothes_storeDataSet2();
-            this.Col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.getAddressBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clothes_storeDataSet = new courseWork2.clothes_storeDataSet();
-            this.get_AddressTableAdapter = new courseWork2.clothes_storeDataSetTableAdapters.Get_AddressTableAdapter();
             this.storeNameLabel = new System.Windows.Forms.Label();
             this.backToMainShopButton = new System.Windows.Forms.Button();
             this.saveAddressButton = new System.Windows.Forms.Button();
-            this.cityTableAdapter = new courseWork2.clothes_storeDataSet2TableAdapters.cityTableAdapter();
+            this.csDataSet = new courseWork2.csDataSet();
+            this.get_AddressBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.get_AddressTableAdapter = new courseWork2.csDataSetTableAdapters.Get_AddressTableAdapter();
+            this.tableAdapterManager = new courseWork2.csDataSetTableAdapters.TableAdapterManager();
+            this.citynameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressstreetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.storeAddressGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clothes_storeDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getAddressBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clothes_storeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.csDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_AddressBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // storeAddressGrid
             // 
+            this.storeAddressGrid.AutoGenerateColumns = false;
             this.storeAddressGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.storeAddressGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.storeAddressGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Col1,
-            this.Col2});
+            this.citynameDataGridViewTextBoxColumn,
+            this.addressstreetDataGridViewTextBoxColumn});
+            this.storeAddressGrid.DataSource = this.get_AddressBindingSource;
             this.storeAddressGrid.Location = new System.Drawing.Point(12, 37);
             this.storeAddressGrid.Name = "storeAddressGrid";
             this.storeAddressGrid.Size = new System.Drawing.Size(386, 188);
             this.storeAddressGrid.TabIndex = 0;
-            // 
-            // Col1
-            // 
-            this.Col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Col1.DataSource = this.cityBindingSource;
-            this.Col1.DisplayMember = "city_name";
-            this.Col1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Col1.DisplayStyleForCurrentCellOnly = true;
-            this.Col1.HeaderText = "Город";
-            this.Col1.MaxDropDownItems = 100;
-            this.Col1.Name = "Col1";
-            this.Col1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Col1.ToolTipText = "Поиск по первой букве";
-            this.Col1.ValueMember = "city_name";
-            this.Col1.Width = 150;
-            // 
-            // cityBindingSource
-            // 
-            this.cityBindingSource.DataMember = "city";
-            this.cityBindingSource.DataSource = this.clothes_storeDataSet2;
-            // 
-            // clothes_storeDataSet2
-            // 
-            this.clothes_storeDataSet2.DataSetName = "clothes_storeDataSet2";
-            this.clothes_storeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // Col2
-            // 
-            this.Col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Col2.HeaderText = "Адрес";
-            this.Col2.Name = "Col2";
-            // 
-            // getAddressBindingSource
-            // 
-            this.getAddressBindingSource.DataMember = "Get_Address";
-            this.getAddressBindingSource.DataSource = this.clothes_storeDataSet;
-            // 
-            // clothes_storeDataSet
-            // 
-            this.clothes_storeDataSet.DataSetName = "clothes_storeDataSet";
-            this.clothes_storeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // get_AddressTableAdapter
-            // 
-            this.get_AddressTableAdapter.ClearBeforeFill = true;
             // 
             // storeNameLabel
             // 
@@ -111,7 +64,7 @@
             this.storeNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.storeNameLabel.Location = new System.Drawing.Point(9, 9);
             this.storeNameLabel.Name = "storeNameLabel";
-            this.storeNameLabel.Size = new System.Drawing.Size(85, 16);
+            this.storeNameLabel.Size = new System.Drawing.Size(84, 16);
             this.storeNameLabel.TabIndex = 1;
             this.storeNameLabel.Text = "storeName";
             // 
@@ -135,9 +88,57 @@
             this.saveAddressButton.UseVisualStyleBackColor = true;
             this.saveAddressButton.Click += new System.EventHandler(this.SaveAddressButton_Click);
             // 
-            // cityTableAdapter
+            // csDataSet
             // 
-            this.cityTableAdapter.ClearBeforeFill = true;
+            this.csDataSet.DataSetName = "csDataSet";
+            this.csDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // get_AddressBindingSource
+            // 
+            this.get_AddressBindingSource.DataMember = "Get_Address";
+            this.get_AddressBindingSource.DataSource = this.csDataSet;
+            // 
+            // get_AddressTableAdapter
+            // 
+            this.get_AddressTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.addressTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.cat_subcategoryTableAdapter = null;
+            this.tableAdapterManager.category_genderTableAdapter = null;
+            this.tableAdapterManager.categoryTableAdapter = null;
+            this.tableAdapterManager.cheque_product_statusTableAdapter = null;
+            this.tableAdapterManager.cheque_setTableAdapter = null;
+            this.tableAdapterManager.chequeTableAdapter = null;
+            this.tableAdapterManager.cityTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.customerTableAdapter = null;
+            this.tableAdapterManager.genderTableAdapter = null;
+            this.tableAdapterManager.priceTableAdapter = null;
+            this.tableAdapterManager.product_addressTableAdapter = null;
+            this.tableAdapterManager.product_sizeTableAdapter = null;
+            this.tableAdapterManager.productTableAdapter = null;
+            this.tableAdapterManager.size_typeTableAdapter = null;
+            this.tableAdapterManager.sizeTableAdapter = null;
+            this.tableAdapterManager.status_of_chequeTableAdapter = null;
+            this.tableAdapterManager.store_addressTableAdapter = null;
+            this.tableAdapterManager.storeTableAdapter = null;
+            this.tableAdapterManager.subcategoryTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = courseWork2.csDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // citynameDataGridViewTextBoxColumn
+            // 
+            this.citynameDataGridViewTextBoxColumn.DataPropertyName = "city_name";
+            this.citynameDataGridViewTextBoxColumn.HeaderText = "Город";
+            this.citynameDataGridViewTextBoxColumn.Name = "citynameDataGridViewTextBoxColumn";
+            // 
+            // addressstreetDataGridViewTextBoxColumn
+            // 
+            this.addressstreetDataGridViewTextBoxColumn.DataPropertyName = "address_street";
+            this.addressstreetDataGridViewTextBoxColumn.HeaderText = "Адрес";
+            this.addressstreetDataGridViewTextBoxColumn.Name = "addressstreetDataGridViewTextBoxColumn";
             // 
             // AddressForm
             // 
@@ -151,12 +152,9 @@
             this.Name = "AddressForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Адреса магазина";
-            this.Load += new System.EventHandler(this.AddressForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.storeAddressGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clothes_storeDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getAddressBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clothes_storeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.csDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_AddressBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,16 +163,14 @@
         #endregion
 
         private System.Windows.Forms.DataGridView storeAddressGrid;
-        private System.Windows.Forms.BindingSource getAddressBindingSource;
-        private clothes_storeDataSet clothes_storeDataSet;
-        private clothes_storeDataSetTableAdapters.Get_AddressTableAdapter get_AddressTableAdapter;
         private System.Windows.Forms.Label storeNameLabel;
         private System.Windows.Forms.Button backToMainShopButton;
         private System.Windows.Forms.Button saveAddressButton;
-        private clothes_storeDataSet2 clothes_storeDataSet2;
-        private System.Windows.Forms.BindingSource cityBindingSource;
-        private clothes_storeDataSet2TableAdapters.cityTableAdapter cityTableAdapter;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Col1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col2;
+        private csDataSet csDataSet;
+        private System.Windows.Forms.BindingSource get_AddressBindingSource;
+        private csDataSetTableAdapters.Get_AddressTableAdapter get_AddressTableAdapter;
+        private csDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridViewTextBoxColumn citynameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressstreetDataGridViewTextBoxColumn;
     }
 }

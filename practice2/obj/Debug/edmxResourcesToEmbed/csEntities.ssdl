@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище clothes_storeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="address">
+    <Key>
+      <PropertyRef Name="address_id" />
+    </Key>
+    <Property Name="address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city_id" Type="int" Nullable="false" />
+    <Property Name="address_street" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cat_subcategory">
+    <Key>
+      <PropertyRef Name="cat_subcat_id" />
+    </Key>
+    <Property Name="cat_subcat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_id" Type="int" Nullable="false" />
+    <Property Name="subcategory_id" Type="int" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="category_gender">
+    <Key>
+      <PropertyRef Name="category_gender_id" />
+    </Key>
+    <Property Name="category_gender_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cat_subcat_id" Type="int" Nullable="false" />
+    <Property Name="gender_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cheque">
+    <Key>
+      <PropertyRef Name="cheque_id" />
+    </Key>
+    <Property Name="cheque_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cust_id" Type="int" Nullable="false" />
+    <Property Name="cheque_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cheque_product_status">
+    <Key>
+      <PropertyRef Name="cheque_status_id" />
+    </Key>
+    <Property Name="cheque_status_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="role_name" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="cheque_set">
+    <Key>
+      <PropertyRef Name="cheque_prod_id" />
+    </Key>
+    <Property Name="cheque_prod_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cheque_id" Type="int" Nullable="false" />
+    <Property Name="product_address_id" Type="int" Nullable="false" />
+    <Property Name="cheque_product_amount" Type="int" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="city_id" />
+    </Key>
+    <Property Name="city_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city_name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="cust_id" />
+    </Key>
+    <Property Name="cust_id" Type="int" Nullable="false" />
+    <Property Name="cust_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="cust_phone" Type="bigint" Nullable="false" />
+    <Property Name="cust_birth" Type="date" />
+    <Property Name="cust_password" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="cust_role" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gender">
+    <Key>
+      <PropertyRef Name="gender_id" />
+    </Key>
+    <Property Name="gender_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gender_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="price">
+    <Key>
+      <PropertyRef Name="price_version_id" />
+    </Key>
+    <Property Name="price_version_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_id" Type="int" Nullable="false" />
+    <Property Name="product_price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="version_date" Type="datetime" Nullable="false" />
+    <Property Name="price_comment" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="product_photo" Type="varbinary(max)" />
+    <Property Name="product_info" Type="nvarchar(max)" />
+    <Property Name="category_gender_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product_address">
+    <Key>
+      <PropertyRef Name="product_address_id" />
+    </Key>
+    <Property Name="product_address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_size_id" Type="int" Nullable="false" />
+    <Property Name="store_address_id" Type="int" Nullable="false" />
+    <Property Name="store_product_amount" Type="int" />
+    <Property Name="change_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product_size">
+    <Key>
+      <PropertyRef Name="product_size_id" />
+    </Key>
+    <Property Name="product_size_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_id" Type="int" Nullable="false" />
+    <Property Name="size_id" Type="int" />
+  </EntityType>
+  <EntityType Name="size">
+    <Key>
+      <PropertyRef Name="size_id" />
+    </Key>
+    <Property Name="size_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="size_country_id" Type="int" Nullable="false" />
+    <Property Name="size_value" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="size_type">
+    <Key>
+      <PropertyRef Name="size_country_id" />
+    </Key>
+    <Property Name="size_country_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="country_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="status_of_cheque">
+    <Key>
+      <PropertyRef Name="status_cheque_id" />
+    </Key>
+    <Property Name="status_cheque_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cheque_prod_id" Type="int" Nullable="false" />
+    <Property Name="cheque_status_id" Type="int" Nullable="false" />
+    <Property Name="status_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="store">
+    <Key>
+      <PropertyRef Name="store_id" />
+    </Key>
+    <Property Name="store_id" Type="int" Nullable="false" />
+    <Property Name="store_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="store_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="store_info" Type="nvarchar(max)" />
+    <Property Name="store_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="store_role" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="store_logo" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="store_address">
+    <Key>
+      <PropertyRef Name="store_address_id" />
+    </Key>
+    <Property Name="store_address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="store_id" Type="int" Nullable="false" />
+    <Property Name="address_id" Type="int" />
+  </EntityType>
+  <EntityType Name="subcategory">
+    <Key>
+      <PropertyRef Name="subcategory_id" />
+    </Key>
+    <Property Name="subcategory_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="subcategory_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_address_city">
+    <End Role="city" Type="Self.city" Multiplicity="1" />
+    <End Role="address" Type="Self.address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="city_id" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="city_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cat_subcategory_category">
+    <End Role="category" Type="Self.category" Multiplicity="1" />
+    <End Role="cat_subcategory" Type="Self.cat_subcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="cat_subcategory">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cat_subcategory_subcategory">
+    <End Role="subcategory" Type="Self.subcategory" Multiplicity="0..1" />
+    <End Role="cat_subcategory" Type="Self.cat_subcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subcategory">
+        <PropertyRef Name="subcategory_id" />
+      </Principal>
+      <Dependent Role="cat_subcategory">
+        <PropertyRef Name="subcategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_category_gender_cat_subcategory">
+    <End Role="cat_subcategory" Type="Self.cat_subcategory" Multiplicity="1" />
+    <End Role="category_gender" Type="Self.category_gender" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cat_subcategory">
+        <PropertyRef Name="cat_subcat_id" />
+      </Principal>
+      <Dependent Role="category_gender">
+        <PropertyRef Name="cat_subcat_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_category_gender_gender">
+    <End Role="gender" Type="Self.gender" Multiplicity="1" />
+    <End Role="category_gender" Type="Self.category_gender" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gender">
+        <PropertyRef Name="gender_id" />
+      </Principal>
+      <Dependent Role="category_gender">
+        <PropertyRef Name="gender_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cheque_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="1" />
+    <End Role="cheque" Type="Self.cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="cheque">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cheque_product_cheque">
+    <End Role="cheque" Type="Self.cheque" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="cheque_set" Type="Self.cheque_set" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cheque">
+        <PropertyRef Name="cheque_id" />
+      </Principal>
+      <Dependent Role="cheque_set">
+        <PropertyRef Name="cheque_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cheque_set_product_address">
+    <End Role="product_address" Type="Self.product_address" Multiplicity="1" />
+    <End Role="cheque_set" Type="Self.cheque_set" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product_address">
+        <PropertyRef Name="product_address_id" />
+      </Principal>
+      <Dependent Role="cheque_set">
+        <PropertyRef Name="product_address_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_price_product">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="price" Type="Self.price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="price">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_address_product_size">
+    <End Role="product_size" Type="Self.product_size" Multiplicity="1" />
+    <End Role="product_address" Type="Self.product_address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product_size">
+        <PropertyRef Name="product_size_id" />
+      </Principal>
+      <Dependent Role="product_address">
+        <PropertyRef Name="product_size_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_address_store_address1">
+    <End Role="store_address" Type="Self.store_address" Multiplicity="1" />
+    <End Role="product_address" Type="Self.product_address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="store_address">
+        <PropertyRef Name="store_address_id" />
+      </Principal>
+      <Dependent Role="product_address">
+        <PropertyRef Name="store_address_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_category_gender">
+    <End Role="category_gender" Type="Self.category_gender" Multiplicity="1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category_gender">
+        <PropertyRef Name="category_gender_id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="category_gender_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_size_product">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="product_size" Type="Self.product_size" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="product_size">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_size_size">
+    <End Role="size" Type="Self.size" Multiplicity="0..1" />
+    <End Role="product_size" Type="Self.product_size" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="size">
+        <PropertyRef Name="size_id" />
+      </Principal>
+      <Dependent Role="product_size">
+        <PropertyRef Name="size_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_size_size_type">
+    <End Role="size_type" Type="Self.size_type" Multiplicity="1" />
+    <End Role="size" Type="Self.size" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="size_type">
+        <PropertyRef Name="size_country_id" />
+      </Principal>
+      <Dependent Role="size">
+        <PropertyRef Name="size_country_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_status_of_cheque_cheque_product_status">
+    <End Role="cheque_product_status" Type="Self.cheque_product_status" Multiplicity="1" />
+    <End Role="status_of_cheque" Type="Self.status_of_cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cheque_product_status">
+        <PropertyRef Name="cheque_status_id" />
+      </Principal>
+      <Dependent Role="status_of_cheque">
+        <PropertyRef Name="cheque_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_status_of_cheque_cheque_set">
+    <End Role="cheque_set" Type="Self.cheque_set" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="status_of_cheque" Type="Self.status_of_cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cheque_set">
+        <PropertyRef Name="cheque_prod_id" />
+      </Principal>
+      <Dependent Role="status_of_cheque">
+        <PropertyRef Name="cheque_prod_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_store_address_address">
+    <End Role="address" Type="Self.address" Multiplicity="0..1" />
+    <End Role="store_address" Type="Self.store_address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="address">
+        <PropertyRef Name="address_id" />
+      </Principal>
+      <Dependent Role="store_address">
+        <PropertyRef Name="address_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_store_address_store">
+    <End Role="store" Type="Self.store" Multiplicity="1" />
+    <End Role="store_address" Type="Self.store_address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="store">
+        <PropertyRef Name="store_id" />
+      </Principal>
+      <Dependent Role="store_address">
+        <PropertyRef Name="store_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Catalogue_GetLastAmount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="store_address_id" Type="int" Mode="In" />
+    <Parameter Name="product_size_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_Address" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCustBag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCustOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetStats" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="store_id" Type="int" Mode="In" />
+    <Parameter Name="date_one" Type="datetime" Mode="In" />
+    <Parameter Name="date_two" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="OrderStatus_NoFilters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="store_id" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище clothes_storeModelContainer">
+    <EntitySet Name="address" EntityType="Self.address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cat_subcategory" EntityType="Self.cat_subcategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="category_gender" EntityType="Self.category_gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cheque" EntityType="Self.cheque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cheque_product_status" EntityType="Self.cheque_product_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cheque_set" EntityType="Self.cheque_set" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gender" EntityType="Self.gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="price" EntityType="Self.price" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product_address" EntityType="Self.product_address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product_size" EntityType="Self.product_size" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="size" EntityType="Self.size" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="size_type" EntityType="Self.size_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="status_of_cheque" EntityType="Self.status_of_cheque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="store" EntityType="Self.store" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="store_address" EntityType="Self.store_address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subcategory" EntityType="Self.subcategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_address_city" Association="Self.FK_address_city">
+      <End Role="city" EntitySet="city" />
+      <End Role="address" EntitySet="address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cat_subcategory_category" Association="Self.FK_cat_subcategory_category">
+      <End Role="category" EntitySet="category" />
+      <End Role="cat_subcategory" EntitySet="cat_subcategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cat_subcategory_subcategory" Association="Self.FK_cat_subcategory_subcategory">
+      <End Role="subcategory" EntitySet="subcategory" />
+      <End Role="cat_subcategory" EntitySet="cat_subcategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_category_gender_cat_subcategory" Association="Self.FK_category_gender_cat_subcategory">
+      <End Role="cat_subcategory" EntitySet="cat_subcategory" />
+      <End Role="category_gender" EntitySet="category_gender" />
+    </AssociationSet>
+    <AssociationSet Name="FK_category_gender_gender" Association="Self.FK_category_gender_gender">
+      <End Role="gender" EntitySet="gender" />
+      <End Role="category_gender" EntitySet="category_gender" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cheque_customer" Association="Self.FK_cheque_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="cheque" EntitySet="cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cheque_product_cheque" Association="Self.FK_cheque_product_cheque">
+      <End Role="cheque" EntitySet="cheque" />
+      <End Role="cheque_set" EntitySet="cheque_set" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cheque_set_product_address" Association="Self.FK_cheque_set_product_address">
+      <End Role="product_address" EntitySet="product_address" />
+      <End Role="cheque_set" EntitySet="cheque_set" />
+    </AssociationSet>
+    <AssociationSet Name="FK_price_product" Association="Self.FK_price_product">
+      <End Role="product" EntitySet="product" />
+      <End Role="price" EntitySet="price" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_address_product_size" Association="Self.FK_product_address_product_size">
+      <End Role="product_size" EntitySet="product_size" />
+      <End Role="product_address" EntitySet="product_address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_address_store_address1" Association="Self.FK_product_address_store_address1">
+      <End Role="store_address" EntitySet="store_address" />
+      <End Role="product_address" EntitySet="product_address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_category_gender" Association="Self.FK_product_category_gender">
+      <End Role="category_gender" EntitySet="category_gender" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_size_product" Association="Self.FK_product_size_product">
+      <End Role="product" EntitySet="product" />
+      <End Role="product_size" EntitySet="product_size" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_size_size" Association="Self.FK_product_size_size">
+      <End Role="size" EntitySet="size" />
+      <End Role="product_size" EntitySet="product_size" />
+    </AssociationSet>
+    <AssociationSet Name="FK_size_size_type" Association="Self.FK_size_size_type">
+      <End Role="size_type" EntitySet="size_type" />
+      <End Role="size" EntitySet="size" />
+    </AssociationSet>
+    <AssociationSet Name="FK_status_of_cheque_cheque_product_status" Association="Self.FK_status_of_cheque_cheque_product_status">
+      <End Role="cheque_product_status" EntitySet="cheque_product_status" />
+      <End Role="status_of_cheque" EntitySet="status_of_cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_status_of_cheque_cheque_set" Association="Self.FK_status_of_cheque_cheque_set">
+      <End Role="cheque_set" EntitySet="cheque_set" />
+      <End Role="status_of_cheque" EntitySet="status_of_cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_store_address_address" Association="Self.FK_store_address_address">
+      <End Role="address" EntitySet="address" />
+      <End Role="store_address" EntitySet="store_address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_store_address_store" Association="Self.FK_store_address_store">
+      <End Role="store" EntitySet="store" />
+      <End Role="store_address" EntitySet="store_address" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

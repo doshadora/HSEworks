@@ -21,12 +21,6 @@ namespace courseWork2
             GetCityInfo();
         }
 
-        private void AddressForm_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "clothes_storeDataSet2.city". При необходимости она может быть перемещена или удалена.
-            this.cityTableAdapter.Fill(this.clothes_storeDataSet2.city);
-        }
-
         #region Функции
 
         public int GetLastId()
@@ -133,7 +127,21 @@ namespace courseWork2
             }
         }
 
+        //private void FillToolStripButton_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        this.get_AddressTableAdapter.Fill(this.csDataSet.Get_Address, new System.Nullable<int>(((int)(System.Convert.ChangeType(idToolStripTextBox.Text, typeof(int))))));
+        //    }
+        //    catch (System.Exception ex)
+        //    {
+        //        System.Windows.Forms.MessageBox.Show(ex.Message);
+        //    }
+
+        //}
+
         #endregion
+
         #region Сохранение
 
         private void SaveAddressButton_Click(object sender, EventArgs e)

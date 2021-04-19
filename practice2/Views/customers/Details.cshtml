@@ -1,0 +1,58 @@
+﻿@model practice2.customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_birth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cust_role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cust_role)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cust_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

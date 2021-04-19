@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="132ceeba018f464dba3dfa3935cc62b3" Name="Diagram1">
+        <EntityTypeShape EntityType="clothes_storeModel.address" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.cat_subcategory" Width="1.5" PointX="1.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.category" Width="1.5" PointX="1.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.category_gender" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.cheque" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.cheque_product_status" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.cheque_set" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.city" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.customer" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.gender" Width="1.5" PointX="1.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.price" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.product" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.product_address" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.product_size" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.size" Width="1.5" PointX="3" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.size_type" Width="1.5" PointX="0.75" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.status_of_cheque" Width="1.5" PointX="12" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.store" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.store_address" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.subcategory" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="clothes_storeModel.sysdiagram" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="clothes_storeModel.FK_address_city" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_store_address_address" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_cat_subcategory_category" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_cat_subcategory_subcategory" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_category_gender_cat_subcategory" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_category_gender_gender" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_product_category_gender" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_cheque_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_cheque_product_cheque" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_status_of_cheque_cheque_product_status" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_cheque_set_product_address" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_status_of_cheque_cheque_set" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_price_product" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_product_size_product" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_product_address_product_size" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_product_address_store_address1" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_product_size_size" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_size_size_type" ManuallyRouted="false" />
+        <AssociationConnector Association="clothes_storeModel.FK_store_address_store" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -51,6 +51,12 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -59,6 +65,9 @@
       <HintPath>packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="Moq, Version=4.16.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>packages\Moq.4.16.1\lib\net45\Moq.dll</HintPath>
     </Reference>
@@ -66,13 +75,34 @@
       <HintPath>packages\NLipsum.1.1.0\lib\net20\NLipsum.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -91,6 +121,9 @@
     <Compile Include="AddProductToStore.Designer.cs">
       <DependentUpon>AddProductToStore.cs</DependentUpon>
     </Compile>
+    <Compile Include="address.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="AddressForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,11 +136,58 @@
     <Compile Include="Catalogue.Designer.cs">
       <DependentUpon>Catalogue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalogue_GetLastAmount_Result.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="category.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="category_gender.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cat_subcategory.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cheque.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cheque_product_status.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cheque_set.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="city.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="csDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>csDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="csEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>csEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="csEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="csEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>csEntities.edmx</DependentUpon>
+    </Compile>
     <Compile Include="CustBag.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustBag.Designer.cs">
       <DependentUpon>CustBag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="customer.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CustOrder.cs">
       <SubType>Form</SubType>
@@ -127,6 +207,21 @@
     <Compile Include="CustShowOrders.Designer.cs">
       <DependentUpon>CustShowOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="gender.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCustBag_Result.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCustOrder_Result.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetStats_Result.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Get_Address_Result.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="MainCust.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +240,20 @@
     <Compile Include="OrderStatus.Designer.cs">
       <DependentUpon>OrderStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs">
-      <SubType>Form</SubType>
+    <Compile Include="OrderStatus_NoFilters_Result.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Product.Designer.cs">
-      <DependentUpon>Product.cs</DependentUpon>
+    <Compile Include="price.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="product.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="product_address.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="product_size.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
@@ -159,11 +263,38 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="size.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="size_type.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Statistics.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Statistics.Designer.cs">
       <DependentUpon>Statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="status_of_cheque.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="store.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="store_address.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="subcategory.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>csEntities.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddProductToStore.resx">
       <DependentUpon>AddProductToStore.cs</DependentUpon>
@@ -195,9 +326,6 @@
     <EmbeddedResource Include="OrderStatus.resx">
       <DependentUpon>OrderStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Product.resx">
-      <DependentUpon>Product.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -213,6 +341,25 @@
     <EmbeddedResource Include="Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="csEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>csEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="csDataSet.xsc">
+      <DependentUpon>csDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="csDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>csDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="csDataSet.xss">
+      <DependentUpon>csDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="csEntities.edmx.diagram">
+      <DependentUpon>csEntities.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -225,9 +372,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
@@ -238,6 +382,21 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="csEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>csEntities.edmx</DependentUpon>
+      <LastGenOutput>csEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="csEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>csEntities.edmx</DependentUpon>
+      <LastGenOutput>csEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
