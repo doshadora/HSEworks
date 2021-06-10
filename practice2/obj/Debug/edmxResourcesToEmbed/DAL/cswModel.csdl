@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cswModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cheque_set">
+    <Key>
+      <PropertyRef Name="cheque_prod_id" />
+    </Key>
+    <Property Name="cheque_prod_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cust_id" Type="Int32" Nullable="false" />
+    <Property Name="product_address_id" Type="Int32" Nullable="false" />
+    <Property Name="cheque_product_amount" Type="Int32" />
+    <Property Name="prod_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="customer" Relationship="Self.FK_cheque_set_customer" FromRole="cheque_set" ToRole="customer" />
+    <NavigationProperty Name="product_address" Relationship="Self.FK_cheque_set_product_address" FromRole="cheque_set" ToRole="product_address" />
+    <NavigationProperty Name="status_of_cheque" Relationship="Self.FK_status_of_cheque_cheque_set" FromRole="cheque_set" ToRole="status_of_cheque" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="cust_id" />
+    </Key>
+    <Property Name="cust_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cust_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cust_phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cust_birth" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cust_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cust_role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="cheque_set" Relationship="Self.FK_cheque_set_customer" FromRole="customer" ToRole="cheque_set" />
+  </EntityType>
+  <EntityType Name="dict_category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="product" Relationship="Self.FK_products_categories" FromRole="dict_category" ToRole="product" />
+  </EntityType>
+  <EntityType Name="dict_city">
+    <Key>
+      <PropertyRef Name="city_id" />
+    </Key>
+    <Property Name="city_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="city_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="store" Relationship="Self.FK_store_dict_city" FromRole="dict_city" ToRole="store" />
+  </EntityType>
+  <EntityType Name="dict_product_status">
+    <Key>
+      <PropertyRef Name="cheque_status_id" />
+    </Key>
+    <Property Name="cheque_status_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="status_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="role_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="status_of_cheque" Relationship="Self.FK_status_of_cheque_cheque_product_status" FromRole="dict_product_status" ToRole="status_of_cheque" />
+  </EntityType>
+  <EntityType Name="dict_size">
+    <Key>
+      <PropertyRef Name="size_id" />
+    </Key>
+    <Property Name="size_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="size_value" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="country_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="product_address" Relationship="Self.FK_product_address_dict_size" FromRole="dict_size" ToRole="product_address" />
+  </EntityType>
+  <EntityType Name="price">
+    <Key>
+      <PropertyRef Name="price_version_id" />
+    </Key>
+    <Property Name="price_version_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="product_price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="version_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="price_comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="product" Relationship="Self.FK_price_product" FromRole="price" ToRole="product" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="product_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="product_photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="product_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="category_id" Type="Int32" Nullable="false" />
+    <Property Name="store_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="dict_category" Relationship="Self.FK_products_categories" FromRole="product" ToRole="dict_category" />
+    <NavigationProperty Name="price" Relationship="Self.FK_price_product" FromRole="product" ToRole="price" />
+    <NavigationProperty Name="product_address" Relationship="Self.FK_product_address_product" FromRole="product" ToRole="product_address" />
+    <NavigationProperty Name="store" Relationship="Self.FK_product_store" FromRole="product" ToRole="store" />
+  </EntityType>
+  <EntityType Name="product_address">
+    <Key>
+      <PropertyRef Name="product_address_id" />
+    </Key>
+    <Property Name="product_address_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="product_amount" Type="Int32" Nullable="false" />
+    <Property Name="change_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="size_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cheque_set" Relationship="Self.FK_cheque_set_product_address" FromRole="product_address" ToRole="cheque_set" />
+    <NavigationProperty Name="dict_size" Relationship="Self.FK_product_address_dict_size" FromRole="product_address" ToRole="dict_size" />
+    <NavigationProperty Name="product" Relationship="Self.FK_product_address_product" FromRole="product_address" ToRole="product" />
+  </EntityType>
+  <EntityType Name="status_of_cheque">
+    <Key>
+      <PropertyRef Name="status_cheque_id" />
+    </Key>
+    <Property Name="status_cheque_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cheque_prod_id" Type="Int32" Nullable="false" />
+    <Property Name="cheque_status_id" Type="Int32" Nullable="false" />
+    <Property Name="status_date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="cheque_set" Relationship="Self.FK_status_of_cheque_cheque_set" FromRole="status_of_cheque" ToRole="cheque_set" />
+    <NavigationProperty Name="dict_product_status" Relationship="Self.FK_status_of_cheque_cheque_product_status" FromRole="status_of_cheque" ToRole="dict_product_status" />
+  </EntityType>
+  <EntityType Name="store">
+    <Key>
+      <PropertyRef Name="store_id" />
+    </Key>
+    <Property Name="store_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="store_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="store_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="store_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="store_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="store_role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="store_logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="store_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="city_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="dict_city" Relationship="Self.FK_store_dict_city" FromRole="store" ToRole="dict_city" />
+    <NavigationProperty Name="product" Relationship="Self.FK_product_store" FromRole="store" ToRole="product" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_cheque_set_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="1" />
+    <End Role="cheque_set" Type="Self.cheque_set" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="cheque_set">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cheque_set_product_address">
+    <End Role="product_address" Type="Self.product_address" Multiplicity="1" />
+    <End Role="cheque_set" Type="Self.cheque_set" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product_address">
+        <PropertyRef Name="product_address_id" />
+      </Principal>
+      <Dependent Role="cheque_set">
+        <PropertyRef Name="product_address_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_status_of_cheque_cheque_set">
+    <End Role="cheque_set" Type="Self.cheque_set" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="status_of_cheque" Type="Self.status_of_cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cheque_set">
+        <PropertyRef Name="cheque_prod_id" />
+      </Principal>
+      <Dependent Role="status_of_cheque">
+        <PropertyRef Name="cheque_prod_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_products_categories">
+    <End Role="dict_category" Type="Self.dict_category" Multiplicity="1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dict_category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_store_dict_city">
+    <End Role="dict_city" Type="Self.dict_city" Multiplicity="1" />
+    <End Role="store" Type="Self.store" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dict_city">
+        <PropertyRef Name="city_id" />
+      </Principal>
+      <Dependent Role="store">
+        <PropertyRef Name="city_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_status_of_cheque_cheque_product_status">
+    <End Role="dict_product_status" Type="Self.dict_product_status" Multiplicity="1" />
+    <End Role="status_of_cheque" Type="Self.status_of_cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dict_product_status">
+        <PropertyRef Name="cheque_status_id" />
+      </Principal>
+      <Dependent Role="status_of_cheque">
+        <PropertyRef Name="cheque_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_address_dict_size">
+    <End Role="dict_size" Type="Self.dict_size" Multiplicity="1" />
+    <End Role="product_address" Type="Self.product_address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dict_size">
+        <PropertyRef Name="size_id" />
+      </Principal>
+      <Dependent Role="product_address">
+        <PropertyRef Name="size_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_price_product">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="price" Type="Self.price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="price">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_address_product">
+    <End Role="product" Type="Self.product" Multiplicity="1" />
+    <End Role="product_address" Type="Self.product_address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="product_address">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_store">
+    <End Role="store" Type="Self.store" Multiplicity="1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="store">
+        <PropertyRef Name="store_id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="store_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="cswEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cheque_set" EntityType="Self.cheque_set" />
+    <EntitySet Name="customer" EntityType="Self.customer" />
+    <EntitySet Name="dict_category" EntityType="Self.dict_category" />
+    <EntitySet Name="dict_city" EntityType="Self.dict_city" />
+    <EntitySet Name="dict_product_status" EntityType="Self.dict_product_status" />
+    <EntitySet Name="dict_size" EntityType="Self.dict_size" />
+    <EntitySet Name="price" EntityType="Self.price" />
+    <EntitySet Name="product" EntityType="Self.product" />
+    <EntitySet Name="product_address" EntityType="Self.product_address" />
+    <EntitySet Name="status_of_cheque" EntityType="Self.status_of_cheque" />
+    <EntitySet Name="store" EntityType="Self.store" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_cheque_set_customer" Association="Self.FK_cheque_set_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="cheque_set" EntitySet="cheque_set" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cheque_set_product_address" Association="Self.FK_cheque_set_product_address">
+      <End Role="product_address" EntitySet="product_address" />
+      <End Role="cheque_set" EntitySet="cheque_set" />
+    </AssociationSet>
+    <AssociationSet Name="FK_status_of_cheque_cheque_set" Association="Self.FK_status_of_cheque_cheque_set">
+      <End Role="cheque_set" EntitySet="cheque_set" />
+      <End Role="status_of_cheque" EntitySet="status_of_cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_products_categories" Association="Self.FK_products_categories">
+      <End Role="dict_category" EntitySet="dict_category" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_store_dict_city" Association="Self.FK_store_dict_city">
+      <End Role="dict_city" EntitySet="dict_city" />
+      <End Role="store" EntitySet="store" />
+    </AssociationSet>
+    <AssociationSet Name="FK_status_of_cheque_cheque_product_status" Association="Self.FK_status_of_cheque_cheque_product_status">
+      <End Role="dict_product_status" EntitySet="dict_product_status" />
+      <End Role="status_of_cheque" EntitySet="status_of_cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_address_dict_size" Association="Self.FK_product_address_dict_size">
+      <End Role="dict_size" EntitySet="dict_size" />
+      <End Role="product_address" EntitySet="product_address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_price_product" Association="Self.FK_price_product">
+      <End Role="product" EntitySet="product" />
+      <End Role="price" EntitySet="price" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_address_product" Association="Self.FK_product_address_product">
+      <End Role="product" EntitySet="product" />
+      <End Role="product_address" EntitySet="product_address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_store" Association="Self.FK_product_store">
+      <End Role="store" EntitySet="store" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <FunctionImport Name="GetBySearch" ReturnType="Collection(cswModel.GetBySearch_Result)">
+      <Parameter Name="search" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustBag">
+      <Parameter Name="cust_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustOrder" ReturnType="Collection(cswModel.GetCustOrder_Result)">
+      <Parameter Name="cust_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetLastAmount">
+      <Parameter Name="store_id" Mode="In" Type="Int32" />
+      <Parameter Name="product_size_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetLastPrice">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetStats">
+      <Parameter Name="store_id" Mode="In" Type="Int32" />
+      <Parameter Name="date_one" Mode="In" Type="DateTime" />
+      <Parameter Name="date_two" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="OrderStatus_NoFilters" ReturnType="Collection(cswModel.OrderStatus_NoFilters_Result)">
+      <Parameter Name="store_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetBySearch_Result">
+    <Property Type="Int32" Name="product_id" Nullable="false" />
+    <Property Type="String" Name="product_code" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="product_name" Nullable="false" MaxLength="100" />
+    <Property Type="Binary" Name="product_photo" Nullable="false" />
+    <Property Type="String" Name="product_info" Nullable="false" />
+    <Property Type="Int32" Name="category_id" Nullable="false" />
+    <Property Type="Int32" Name="store_id" Nullable="false" />
+    <Property Type="Int32" Name="category_id1" Nullable="true" />
+    <Property Type="String" Name="category_name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="price_version_id" Nullable="false" />
+    <Property Type="Int32" Name="product_id1" Nullable="false" />
+    <Property Type="Decimal" Name="product_price" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="version_date" Nullable="false" Precision="23" />
+    <Property Type="String" Name="price_comment" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="store_id1" Nullable="false" />
+    <Property Type="String" Name="store_name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="store_code" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="store_info" Nullable="true" />
+    <Property Type="String" Name="store_password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="store_role" Nullable="false" MaxLength="50" />
+    <Property Type="Binary" Name="store_logo" Nullable="true" />
+    <Property Type="String" Name="store_address" Nullable="false" />
+    <Property Type="Int32" Name="city_id" Nullable="false" />
+    <Property Type="Int32" Name="city_id1" Nullable="false" />
+    <Property Type="String" Name="city_name" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetCustOrder_Result">
+    <Property Type="Int32" Name="city_id" Nullable="false" />
+    <Property Type="String" Name="city_name" Nullable="false" />
+    <Property Type="Int32" Name="store_id" Nullable="false" />
+    <Property Type="String" Name="store_name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="store_code" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="store_info" Nullable="true" />
+    <Property Type="String" Name="store_password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="store_role" Nullable="false" MaxLength="50" />
+    <Property Type="Binary" Name="store_logo" Nullable="true" />
+    <Property Type="String" Name="store_address" Nullable="false" />
+    <Property Type="Int32" Name="city_id1" Nullable="false" />
+    <Property Type="Int32" Name="product_id" Nullable="false" />
+    <Property Type="String" Name="product_code" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="product_name" Nullable="false" MaxLength="100" />
+    <Property Type="Binary" Name="product_photo" Nullable="false" />
+    <Property Type="String" Name="product_info" Nullable="false" />
+    <Property Type="Int32" Name="category_id" Nullable="false" />
+    <Property Type="Int32" Name="store_id1" Nullable="false" />
+    <Property Type="Int32" Name="product_address_id" Nullable="false" />
+    <Property Type="Int32" Name="product_id1" Nullable="false" />
+    <Property Type="Int32" Name="product_amount" Nullable="false" />
+    <Property Type="DateTime" Name="change_date" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="size_id" Nullable="false" />
+    <Property Type="Int32" Name="price_version_id" Nullable="false" />
+    <Property Type="Int32" Name="product_id2" Nullable="false" />
+    <Property Type="Decimal" Name="product_price" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="version_date" Nullable="false" Precision="23" />
+    <Property Type="String" Name="price_comment" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="size_id1" Nullable="false" />
+    <Property Type="String" Name="size_value" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="country_name" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="cheque_prod_id" Nullable="false" />
+    <Property Type="Int32" Name="cust_id" Nullable="false" />
+    <Property Type="Int32" Name="product_address_id1" Nullable="false" />
+    <Property Type="Int32" Name="cheque_product_amount" Nullable="true" />
+    <Property Type="DateTime" Name="prod_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="cust_id1" Nullable="false" />
+    <Property Type="String" Name="cust_name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="cust_phone" Nullable="false" MaxLength="11" />
+    <Property Type="DateTime" Name="cust_birth" Nullable="false" Precision="23" />
+    <Property Type="String" Name="cust_password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="cust_role" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="status_cheque_id" Nullable="false" />
+    <Property Type="Int32" Name="cheque_prod_id1" Nullable="false" />
+    <Property Type="Int32" Name="cheque_status_id" Nullable="false" />
+    <Property Type="DateTime" Name="status_date" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="cheque_status_id1" Nullable="false" />
+    <Property Type="String" Name="status_name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="role_name" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="OrderStatus_NoFilters_Result">
+    <Property Type="Int32" Name="city_id" Nullable="false" />
+    <Property Type="String" Name="city_name" Nullable="false" />
+    <Property Type="Int32" Name="store_id" Nullable="false" />
+    <Property Type="String" Name="store_name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="store_code" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="store_info" Nullable="true" />
+    <Property Type="String" Name="store_password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="store_role" Nullable="false" MaxLength="50" />
+    <Property Type="Binary" Name="store_logo" Nullable="true" />
+    <Property Type="String" Name="store_address" Nullable="false" />
+    <Property Type="Int32" Name="city_id1" Nullable="false" />
+    <Property Type="Int32" Name="product_id" Nullable="false" />
+    <Property Type="String" Name="product_code" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="product_name" Nullable="false" MaxLength="100" />
+    <Property Type="Binary" Name="product_photo" Nullable="false" />
+    <Property Type="String" Name="product_info" Nullable="false" />
+    <Property Type="Int32" Name="category_id" Nullable="false" />
+    <Property Type="Int32" Name="store_id1" Nullable="false" />
+    <Property Type="Int32" Name="product_address_id" Nullable="false" />
+    <Property Type="Int32" Name="product_id1" Nullable="false" />
+    <Property Type="Int32" Name="product_amount" Nullable="false" />
+    <Property Type="DateTime" Name="change_date" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="size_id" Nullable="false" />
+    <Property Type="Int32" Name="price_version_id" Nullable="false" />
+    <Property Type="Int32" Name="product_id2" Nullable="false" />
+    <Property Type="Decimal" Name="product_price" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="version_date" Nullable="false" Precision="23" />
+    <Property Type="String" Name="price_comment" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="size_id1" Nullable="false" />
+    <Property Type="String" Name="size_value" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="country_name" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="cheque_prod_id" Nullable="false" />
+    <Property Type="Int32" Name="cust_id" Nullable="false" />
+    <Property Type="Int32" Name="product_address_id1" Nullable="false" />
+    <Property Type="Int32" Name="cheque_product_amount" Nullable="true" />
+    <Property Type="DateTime" Name="prod_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="cust_id1" Nullable="false" />
+    <Property Type="String" Name="cust_name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="cust_phone" Nullable="false" MaxLength="11" />
+    <Property Type="DateTime" Name="cust_birth" Nullable="false" Precision="23" />
+    <Property Type="String" Name="cust_password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="cust_role" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="status_cheque_id" Nullable="false" />
+    <Property Type="Int32" Name="cheque_prod_id1" Nullable="false" />
+    <Property Type="Int32" Name="cheque_status_id" Nullable="false" />
+    <Property Type="DateTime" Name="status_date" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="cheque_status_id1" Nullable="false" />
+    <Property Type="String" Name="status_name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="role_name" Nullable="true" MaxLength="20" />
+  </ComplexType>
+</Schema>

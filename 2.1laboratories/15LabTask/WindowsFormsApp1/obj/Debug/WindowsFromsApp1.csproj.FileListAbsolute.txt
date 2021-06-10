@@ -1,8 +1,6 @@
 D:\source\repos\HSEworks\2.1laboratories\15LabTask\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
 D:\source\repos\HSEworks\2.1laboratories\15LabTask\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 D:\source\repos\HSEworks\2.1laboratories\15LabTask\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
-D:\source\repos\HSEworks\2.1laboratories\15LabTask\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.CodeAnalysisLog.xml
-D:\source\repos\HSEworks\2.1laboratories\15LabTask\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.lastcodeanalysissucceeded
 D:\source\repos\HSEworks\2.1laboratories\15LabTask\WindowsFormsApp1\obj\Debug\WindowsFromsApp1.csprojAssemblyReference.cache
 D:\source\repos\HSEworks\2.1laboratories\15LabTask\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Display.resources
 D:\source\repos\HSEworks\2.1laboratories\15LabTask\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources

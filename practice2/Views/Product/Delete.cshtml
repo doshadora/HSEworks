@@ -1,0 +1,54 @@
+﻿@model practice2.DAL.product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Вы уверены, что хотите удалить этот товар?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Артикул")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Товар")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Описание товара")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_info)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Категория")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dict_category.category_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Counter" Type="Int32" Nullable="false" />
+    <Property Name="DirectionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Directions" Relationship="Self.FK_Courses_Directions" FromRole="Courses" ToRole="Directions" />
+    <NavigationProperty Name="StudySubjects" Relationship="Self.FK_StudySubjects_Courses" FromRole="Courses" ToRole="StudySubjects" />
+  </EntityType>
+  <EntityType Name="Directions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShortName" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_Directions" FromRole="Directions" ToRole="Courses" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK_Groups_Directions" FromRole="Directions" ToRole="Groups" />
+    <NavigationProperty Name="Users" Relationship="Self.Managers" FromRole="Directions" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DirectionId" Type="Int32" Nullable="false" />
+    <Property Name="AdmisionYear" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Directions" Relationship="Self.FK_Groups_Directions" FromRole="Groups" ToRole="Directions" />
+    <NavigationProperty Name="GroupStudySubjects" Relationship="Self.FK_GroupStudySubjects_Groups" FromRole="Groups" ToRole="GroupStudySubjects" />
+    <NavigationProperty Name="Students" Relationship="Self.FK_Students_Groups" FromRole="Groups" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="GroupStudySubjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <Property Name="TeacherId" Type="Int32" />
+    <Property Name="StudySubjectId" Type="Int32" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK_GroupStudySubjects_Groups" FromRole="GroupStudySubjects" ToRole="Groups" />
+    <NavigationProperty Name="StudySubjects" Relationship="Self.FK_GroupStudySubjects_StudySubjects" FromRole="GroupStudySubjects" ToRole="StudySubjects" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_GroupStudySubjects_Users" FromRole="GroupStudySubjects" ToRole="Users" />
+    <NavigationProperty Name="StudyTasks" Relationship="Self.StudyTaskGroupStudySubjects" FromRole="GroupStudySubjects" ToRole="StudyTasks" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="GroupId" Type="Int32" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK_Students_Groups" FromRole="Students" ToRole="Groups" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Students_Users" FromRole="Students" ToRole="Users" />
+    <NavigationProperty Name="TaskRatings" Relationship="Self.FK_TaskRatings_Students" FromRole="Students" ToRole="TaskRatings" />
+  </EntityType>
+  <EntityType Name="StudySubjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="SubjectId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Courses" Relationship="Self.FK_StudySubjects_Courses" FromRole="StudySubjects" ToRole="Courses" />
+    <NavigationProperty Name="GroupStudySubjects" Relationship="Self.FK_GroupStudySubjects_StudySubjects" FromRole="StudySubjects" ToRole="GroupStudySubjects" />
+    <NavigationProperty Name="Subjects" Relationship="Self.FK_StudySubjects_Subjects" FromRole="StudySubjects" ToRole="Subjects" />
+  </EntityType>
+  <EntityType Name="StudyTasks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TaskRatings" Relationship="Self.FK_TaskRatings_StudyTasks" FromRole="StudyTasks" ToRole="TaskRatings" />
+    <NavigationProperty Name="GroupStudySubjects" Relationship="Self.StudyTaskGroupStudySubjects" FromRole="StudyTasks" ToRole="GroupStudySubjects" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="StudySubjects" Relationship="Self.FK_StudySubjects_Subjects" FromRole="Subjects" ToRole="StudySubjects" />
+    <NavigationProperty Name="Users" Relationship="Self.TeacherSubjects" FromRole="Subjects" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TaskRatings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="StudyTaskId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Students" Relationship="Self.FK_TaskRatings_Students" FromRole="TaskRatings" ToRole="Students" />
+    <NavigationProperty Name="StudyTasks" Relationship="Self.FK_TaskRatings_StudyTasks" FromRole="TaskRatings" ToRole="StudyTasks" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Family" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patromymic" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sex" Type="Int32" Nullable="false" />
+    <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GroupStudySubjects" Relationship="Self.FK_GroupStudySubjects_Users" FromRole="Users" ToRole="GroupStudySubjects" />
+    <NavigationProperty Name="Students" Relationship="Self.FK_Students_Users" FromRole="Users" ToRole="Students" />
+    <NavigationProperty Name="Directions" Relationship="Self.Managers" FromRole="Users" ToRole="Directions" />
+    <NavigationProperty Name="Subjects" Relationship="Self.TeacherSubjects" FromRole="Users" ToRole="Subjects" />
+  </EntityType>
+  <Association Name="FK_Courses_Directions">
+    <End Role="Directions" Type="Self.Directions" Multiplicity="1" />
+    <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Directions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="DirectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudySubjects_Courses">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="StudySubjects" Type="Self.StudySubjects" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudySubjects">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Groups_Directions">
+    <End Role="Directions" Type="Self.Directions" Multiplicity="1" />
+    <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Directions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Groups">
+        <PropertyRef Name="DirectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupStudySubjects_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+    <End Role="GroupStudySubjects" Type="Self.GroupStudySubjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupStudySubjects">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Students_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupStudySubjects_StudySubjects">
+    <End Role="StudySubjects" Type="Self.StudySubjects" Multiplicity="0..1" />
+    <End Role="GroupStudySubjects" Type="Self.GroupStudySubjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudySubjects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupStudySubjects">
+        <PropertyRef Name="StudySubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupStudySubjects_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="GroupStudySubjects" Type="Self.GroupStudySubjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupStudySubjects">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Students_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskRatings_Students">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="TaskRatings" Type="Self.TaskRatings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TaskRatings">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudySubjects_Subjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+    <End Role="StudySubjects" Type="Self.StudySubjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudySubjects">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskRatings_StudyTasks">
+    <End Role="StudyTasks" Type="Self.StudyTasks" Multiplicity="1" />
+    <End Role="TaskRatings" Type="Self.TaskRatings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudyTasks">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TaskRatings">
+        <PropertyRef Name="StudyTaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Managers">
+    <End Role="Directions" Type="Self.Directions" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+  </Association>
+  <Association Name="StudyTaskGroupStudySubjects">
+    <End Role="GroupStudySubjects" Type="Self.GroupStudySubjects" Multiplicity="*" />
+    <End Role="StudyTasks" Type="Self.StudyTasks" Multiplicity="*" />
+  </Association>
+  <Association Name="TeacherSubjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="PlanEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Courses" EntityType="Self.Courses" />
+    <EntitySet Name="Directions" EntityType="Self.Directions" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" />
+    <EntitySet Name="GroupStudySubjects" EntityType="Self.GroupStudySubjects" />
+    <EntitySet Name="Students" EntityType="Self.Students" />
+    <EntitySet Name="StudySubjects" EntityType="Self.StudySubjects" />
+    <EntitySet Name="StudyTasks" EntityType="Self.StudyTasks" />
+    <EntitySet Name="Subjects" EntityType="Self.Subjects" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TaskRatings" EntityType="Self.TaskRatings" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Courses_Directions" Association="Self.FK_Courses_Directions">
+      <End Role="Directions" EntitySet="Directions" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudySubjects_Courses" Association="Self.FK_StudySubjects_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="StudySubjects" EntitySet="StudySubjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Groups_Directions" Association="Self.FK_Groups_Directions">
+      <End Role="Directions" EntitySet="Directions" />
+      <End Role="Groups" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupStudySubjects_Groups" Association="Self.FK_GroupStudySubjects_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="GroupStudySubjects" EntitySet="GroupStudySubjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_Groups" Association="Self.FK_Students_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupStudySubjects_StudySubjects" Association="Self.FK_GroupStudySubjects_StudySubjects">
+      <End Role="StudySubjects" EntitySet="StudySubjects" />
+      <End Role="GroupStudySubjects" EntitySet="GroupStudySubjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupStudySubjects_Users" Association="Self.FK_GroupStudySubjects_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="GroupStudySubjects" EntitySet="GroupStudySubjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_Users" Association="Self.FK_Students_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskRatings_Students" Association="Self.FK_TaskRatings_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="TaskRatings" EntitySet="TaskRatings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudySubjects_Subjects" Association="Self.FK_StudySubjects_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="StudySubjects" EntitySet="StudySubjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskRatings_StudyTasks" Association="Self.FK_TaskRatings_StudyTasks">
+      <End Role="StudyTasks" EntitySet="StudyTasks" />
+      <End Role="TaskRatings" EntitySet="TaskRatings" />
+    </AssociationSet>
+    <AssociationSet Name="Managers" Association="Self.Managers">
+      <End Role="Directions" EntitySet="Directions" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="StudyTaskGroupStudySubjects" Association="Self.StudyTaskGroupStudySubjects">
+      <End Role="GroupStudySubjects" EntitySet="GroupStudySubjects" />
+      <End Role="StudyTasks" EntitySet="StudyTasks" />
+    </AssociationSet>
+    <AssociationSet Name="TeacherSubjects" Association="Self.TeacherSubjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<practice2.DAL.product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Мои товары</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="width: 20px;">
+            @Html.DisplayName("Артикул")
+        </th>
+        <th style="width: 20px;">
+            @Html.DisplayName("Товар")
+        </th>
+        <th>
+            @Html.DisplayName("Фотография")
+        </th>
+        <th style="width: 40px;">
+            @Html.DisplayName("Описание товара")
+        </th>
+        <th>
+            @Html.DisplayName("Категория")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.store_id == @ViewBag.id)
+        {
+            <tr>
+                <td style="width: 20px;">
+                    @Html.DisplayFor(modelItem => item.product_code)
+                </td>
+                <td style="width: 20px;">
+                    @Html.DisplayFor(modelItem => item.product_name)
+                </td>
+                <td>
+                    <img src="data:image;base64,@System.Convert.ToBase64String(item.product_photo)" width="80" height="100" />
+                </td>
+                <td style="width: 40px;">
+                    @Html.DisplayFor(modelItem => item.product_info)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dict_category.category_name)
+                </td>
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.product_id }) |
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.product_id }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.product_id })
+                    <hr />
+                    @Html.ActionLink("Цена", "IndexPrice", new { id = item.product_id }) |
+                    @Html.ActionLink("Размер и количество", "IndexSize", new { id = item.product_id })
+                </td>
+            </tr>
+        }
+    }
+
+</table>

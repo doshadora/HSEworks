@@ -1,0 +1,34 @@
+﻿@model practice2.DAL.status_of_cheque
+
+@{
+    ViewBag.Title = "EditStatus";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string stat1 = "";
+    string stat2 = "";
+}
+
+<h3>Изменить статус заказа?</h3>
+
+<div>
+    @using (Html.BeginForm("EditStatus", "Order", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        foreach (var item in ViewBag.stats)
+        {
+            if (@Html.ViewData.Model.cheque_status_id == item.cheque_status_id)
+            {
+                stat1 = item.status_name;
+            }
+            if (@Html.ViewData.Model.cheque_status_id + 1 == item.cheque_status_id)
+            {
+                stat2 = item.status_name;
+            }
+        }
+        @stat1 <b>--></b> @stat2
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Даааа" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться", "Index")
+        </div>
+    }
+</div>

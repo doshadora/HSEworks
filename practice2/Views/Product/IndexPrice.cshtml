@@ -1,0 +1,51 @@
+﻿@model IEnumerable<practice2.DAL.price>
+
+@{
+    ViewBag.Title = "IndexPrice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Добавление цены</h2>
+
+<p>
+    @Html.ActionLink("Создать", "CreatePrice")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Товар")
+        </th>
+        <th>
+            @Html.DisplayName("Цена")
+        </th>
+        <th>
+            @Html.DisplayName("Дата изменения")
+        </th>
+        <th>
+            @Html.DisplayName("Комментарий")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.version_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price_comment)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Вернуться", "Index")
+</div>

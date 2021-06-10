@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d9acc234968045ed90d19dd4d0caf8d1" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="cswModel.cheque_set" Width="1.5" PointX="12.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.customer" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.dict_category" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.dict_city" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.dict_product_status" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.dict_size" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.price" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.product" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.product_address" Width="1.5" PointX="10.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.status_of_cheque" Width="1.5" PointX="15" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.store" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cswModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="cswModel.FK_cheque_set_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="cswModel.FK_cheque_set_product_address" ManuallyRouted="false" />
+        <AssociationConnector Association="cswModel.FK_status_of_cheque_cheque_set" ManuallyRouted="false" />
+        <AssociationConnector Association="cswModel.FK_products_categories" ManuallyRouted="false" />
+        <AssociationConnector Association="cswModel.FK_store_dict_city" ManuallyRouted="false" />
+        <AssociationConnector Association="cswModel.FK_status_of_cheque_cheque_product_status" ManuallyRouted="false" />
+        <AssociationConnector Association="cswModel.FK_product_address_dict_size" ManuallyRouted="false" />
+        <AssociationConnector Association="cswModel.FK_price_product" ManuallyRouted="false" />
+        <AssociationConnector Association="cswModel.FK_product_address_product" ManuallyRouted="false" />
+        <AssociationConnector Association="cswModel.FK_product_store" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

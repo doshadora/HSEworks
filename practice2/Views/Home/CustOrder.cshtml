@@ -1,0 +1,130 @@
+﻿@model IEnumerable<practice2.DAL.cheque_set>
+
+@{
+    ViewBag.Title = "CustOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
+    int j = 0;
+    int m = 0;
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Товар")
+        </th>
+        <th>
+            @Html.DisplayName("Статус заказа")
+        </th>
+        <th>
+            @Html.DisplayName("Магазин")
+        </th>
+        <th>
+            @Html.DisplayName("Адрес")
+        </th>
+        <th>
+            @Html.DisplayName("Цена")
+        </th>
+        <th>
+            @Html.DisplayName("Размер")
+        </th>
+        <th>
+            @Html.DisplayName("Количество")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        i = 0;
+        m = 0;
+        <tr>
+            @foreach (var itemm in ViewBag.stat)
+            {
+                if (itemm.cheque_prod_id == item.cheque_prod_id && i != 1)
+                {
+                    foreach (var itemmm in ViewBag.statname)
+                    {
+                        if (itemm.cheque_status_id == itemmm.cheque_status_id && i != 1)
+                        {
+                            if (itemmm.cheque_status_id == 5)
+                            {
+                                <td bgcolor="green">
+                                    @itemmm.status_name
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    @itemmm.status_name
+                                </td>
+                            }
+                            i = 1;
+                        }
+                    }
+                }
+            }
+            @foreach (var item1 in ViewBag.prodad)
+            {
+                if (item.product_address_id == item1.product_address_id && m != 1)
+                {
+                    foreach (var item2 in ViewBag.product)
+                    {
+                        j = 0;
+                        if (item1.product_id == item2.product_id && m != 1)
+                        {
+                            <td>
+                                @item2.product_name
+                            </td>
+                            m = 1;
+
+                            foreach (var item3 in ViewBag.store)
+                            {
+                                if (item2.store_id == item3.store_id && j != 1)
+                                {
+                                    <td>
+                                        @item3.store_name
+                                    </td>
+                                    <td>
+                                        @item3.store_address
+                                    </td>
+                                    j = 1;
+                                }
+                            }
+                        }
+                    }
+                    i = 0;
+                    foreach (var item2 in ViewBag.price)
+                    {
+                        if (item1.product_id == item2.product_id && i != 1)
+                        {
+                            <td>
+                                @item2.product_price руб.
+                            </td>
+                            i = 1;
+                        }
+                    }
+                    i = 0;
+                    foreach (var item2 in ViewBag.size)
+                    {
+                        if (item1.size_id == item2.size_id && i != 1)
+                        {
+                            <td>
+                                @item2.size_value @item2.country_name
+                            </td>
+                            i = 1;
+                        }
+                    }
+                }
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.cheque_product_amount)
+            </td>
+        </tr>
+
+    }
+</table>
+@if (Model.Count() == 0)
+{
+    <h4 align="center">@Html.ActionLink("Вы ещё не успели ничего заказать;(", "Index")</h4>
+}

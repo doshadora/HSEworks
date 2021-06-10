@@ -1,0 +1,19 @@
+﻿@model practice2.DAL.cheque_set
+
+@{
+    ViewBag.Title = "DeleteCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Вы уверены, что хотите удалить товар из корзины?</h3>
+
+<div>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> | 
+            @Html.ActionLink("Вернуться", "Checkout")
+        </div>
+    }
+</div>

@@ -1,38 +1,74 @@
-﻿<!DOCTYPE html>
+﻿@using practice2.Models.Home;
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <title>@ViewBag.Title</title>
+    @*@Styles.Render("~/Content/css")*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MyMainLayout.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="logo">
+                    @if (ViewBag.Title != "Регистрация" && ViewBag.Title != "Выполнить вход" && ViewBag.Title != "Регистрация магазина")
+                    {
+                        <h1><a href="@Url.Action("Index","Home")">Интернет магазин <br /><span>твоих любимых вещей</span></a></h1>
+                    }
+                    else
+                    {
+                        <h1>Интернет магазин <br /><span>твоих любимых вещей</span></h1>
+                    }
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Информация", "About", "Home")</li>
-                    <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
-                </ul>
+            @if (ViewBag.Title != "Регистрация" && ViewBag.Title != "Выполнить вход" && ViewBag.Title != "Регистрация магазина")
+            {
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="@Url.Action("Checkout","Home")">Корзина</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="@Url.Action("CustOrder","Home")">Заказы</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="@Url.Action("Login","Account")">Выйти из аккаунта</a>
+                        </li>
+                    </ul>
+                </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-menus">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a style="border-radius:initial;" href="@Url.Action("Index","Home")">Главная</a></li>
+                        <li><a style="border-radius:initial;" href="@Url.Action("About","Home")">О платформе</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
+            <div class="row">
+                <div class="col-md-12 copyright">
+                    <div class="col-md-6 col-sm-6 copyright-left">
+                        <p>&copy; @DateTime.Now.Year - Интернет магазин твоих вещей. All right reserved.</p>
+                    </div>
+
+                </div>
+            </div>
         </footer>
     </div>
 

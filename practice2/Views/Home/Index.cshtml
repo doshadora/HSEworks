@@ -1,31 +1,101 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model practice2.Models.Home.HomeIndexViewModel
+@{
+    ViewBag.Title = "Интернет магазин";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+@Html.AntiForgeryToken()
+@if (TempData["Success"] != null)
+{
+    <div>Вы успешно добавили товар в корзину!</div>
+}
+<div id="themeSlider" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#themeSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#themeSlider" data-slide-to="1"></li>
+        <li data-target="#themeSlider" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="../Images/shanna-camilleri-ljNQxfyN7AM-unsplash-1024x487.jpg" alt="First slide">
+            <div class="carousel-caption">
+                <h3>Лучшие новинки уже ждут тебя</h3>
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="../Images/мерчандайзинг одежды.jpg" alt="Second slide">
+            <div class="carousel-caption">
+                <h3>Твои любимые магазины</h3>
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="../Images/Стиль-женской-одежды-2018.jpg" alt="Third slide">
+            <div class="carousel-caption">
+                <h3>Привлекательные цены</h3>
+            </div>
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#themeSlider" data-slide="prev">
+        <span class="fa fa-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#themeSlider" data-slide="next">
+        <span class="fa fa-chevron-right"></span>
+    </a>
+</div>
+<div class="olContent f1">
+    <h2 style="color:black">Поиск по товару/категории/городу</h2>
+</div>
+<form method="post">
+    <div class="olSearch fr">
+        <input type="text" placeholder="Введите поисковое значение" name="search" class="inputComn houseText form-control" />
+        <div class="searchIcon">
+            <button type="button" class="searchBtn">
+                <img src="~/Images/imgonline-com-ua-Resize-p2z77FJE0rHnb.jpg" />
+            </button>
+        </div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Каталог товаров</h2>
+            @if (!@ViewBag.searchEmpty)
+            {
+                @Html.ActionLink("Очистить поиск", "Index", new { seacrh = "" })
+            }
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+@Html.AntiForgeryToken()
+<div class="row product-container">
+    @foreach (var item in Model.ListOfProducts)
+    {
+        <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+            <div class="thumbnail product-item" style="height:350px">
+                <img class="img-responsive" style="cursor:pointer;height:160px;width:100%" src="data:image;base64,@System.Convert.ToBase64String(item.product_photo)" width="80" height="100" />
+
+                <div class="caption">
+                    <h5>@item.product_name</h5>
+                    @foreach (var item1 in Model.ListOfPrices)
+                    {
+                        if (item.product_id == item1.product_id)
+                        {
+                            <p>@item1.product_price руб.</p>
+                        }
+                    }
+                    <h6>@item.product_info</h6>
+                    <p>
+                        @using (Html.BeginForm("AddToCart", "Home", new { productId = item.product_id, url = "Index" }, FormMethod.Post))
+                        {
+                            <button type="submit" class="pull-right"><i class="fa fa-shopping-cart"></i></button>
+                        }
+                </div>
+            </div>
+        </div>
+    }
 </div>
